@@ -1,0 +1,87 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{Gibbons1992NonparametricStatisticalInference}
+Jean~Dickinson Gibbons and Subhabrata Chakraborti, \emph{Nonparametric
+  statistical inference}, Marcel Dekker, Inc, 1992.
+
+\bibitem{rui2009b}
+Rui Hu, Xing Qiu, and Galina Glazko, \emph{A new gene selection procedure based
+  on the covariance distance}, Bioinformatics \textbf{26} (2010), no.~3, 348.
+
+\bibitem{Klebanov2005permutationtestmotivated}
+L.~Klebanov, A.~Gordon, Y.~Xiao, H.~Land, and A.~Yakovlev, \emph{A permutation
+  test motivated by microarray data analysis}, Computational Statistics and
+  Data Analysis (2005).
+
+\bibitem{Klebanov2007Statisticalmethodsand}
+Lev Klebanov, Xing Qiu, Stephen Welle, and Andrei Yakovlev, \emph{Statistical
+  methods and microarray data.}, Nat Biotechnol \textbf{25} (2007), no.~1,
+  25--6; author reply 26--7.
+
+\bibitem{Needham2011}
+Mark Needham, Rui Hu, Sandhya Dwarkadas, and Xing Qiu, \emph{Hierarchical
+  parallelization of gene differential association analysis}, BMC
+  Bioinformatics \textbf{12} (2011), no.~1, 374.
+
+\bibitem{qiu-hu2010}
+Xing Qiu and Rui Hu, \emph{Correlation between the true and false discoveries
+  in a positively dependent multiple comparison problem}, submitted to the IMS
+  Collections, Andrei Yakovlev Collection, Institute of Mathematical
+  Statistics, 2011.
+
+\bibitem{Shi2006MicroArrayQualityControl}
+Leming Shi, Laura~H Reid, Wendell~D Jones, Richard Shippy, Janet~A Warrington,
+  Shawn~C Baker, Patrick~J Collins, Francoise de~Longueville, Ernest~S
+  Kawasaki, Kathleen~Y Lee, Yuling Luo, Yongming~Andrew Sun, James~C Willey,
+  Robert~A Setterquist, Gavin~M Fischer, Weida Tong, Yvonne~P Dragan, David~J
+  Dix, Felix~W Frueh, Frederico~M Goodsaid, Damir Herman, Roderick~V Jensen,
+  Charles~D Johnson, Edward~K Lobenhofer, Raj~K Puri, Uwe Schrf, Jean
+  Thierry-Mieg, Charles Wang, Mike Wilson, Paul~K Wolber, Lu~Zhang, Shashi
+  Amur, Wenjun Bao, Catalin~C Barbacioru, Anne~Bergstrom Lucas, Vincent
+  Bertholet, Cecilie Boysen, Bud Bromley, Donna Brown, Alan Brunner, Roger
+  Canales, Xiaoxi~Megan Cao, Thomas~A Cebula, James~J Chen, Jing Cheng,
+  Tzu-Ming Chu, Eugene Chudin, John Corson, J~Christopher Corton, Lisa~J
+  Croner, Christopher Davies, Timothy~S Davison, Glenda Delenstarr, Xutao Deng,
+  David Dorris, Aron~C Eklund, Xiao hui Fan, Hong Fang, Stephanie
+  Fulmer-Smentek, James~C Fuscoe, Kathryn Gallagher, Weigong Ge, Lei Guo,
+  Xu~Guo, Janet Hager, Paul~K Haje, Jing Han, Tao Han, Heather~C Harbottle,
+  Stephen~C Harris, Eli Hatchwell, Craig~A Hauser, Susan Hester, Huixiao Hong,
+  Patrick Hurban, Scott~A Jackson, Hanlee Ji, Charles~R Knight, Winston~P Kuo,
+  J~Eugene LeClerc, Shawn Levy, Quan-Zhen Li, Chunmei Liu, Ying Liu, Michael~J
+  Lombardi, Yunqing Ma, Scott~R Magnuson, Botoul Maqsodi, Tim McDaniel, Nan
+  Mei, Ola Myklebost, Baitang Ning, Natalia Novoradovskaya, Michael~S Orr,
+  Terry~W Osborn, Adam Papallo, Tucker~A Patterson, Roger~G Perkins,
+  Elizabeth~H Peters, Ron Peterson, Kenneth~L Philips, P~Scott Pine, Lajos
+  Pusztai, Feng Qian, Hongzu Ren, Mitch Rosen, Barry~A Rosenzweig, Raymond~R
+  Samaha, Mark Schena, Gary~P Schroth, Svetlana Shchegrova, Dave~D Smith, Frank
+  Staedtler, Zhenqiang Su, Hongmei Sun, Zoltan Szallasi, Zivana Tezak, Danielle
+  Thierry-Mieg, Karol~L Thompson, Irina Tikhonova, Yaron Turpaz, Beena
+  Vallanat, Christophe Van, Stephen~J Walker, Sue~Jane Wang, Yonghong Wang,
+  Russ Wolfinger, Alex Wong, Jie Wu, Chunlin Xiao, Qian Xie, Jun Xu, Wen Yang,
+  Liang Zhang, Sheng Zhong, Yaping Zong, and William~Jr Slikker, \emph{The
+  {M}icro{A}rray {Q}uality {C}ontrol ({M}{A}{Q}{C}) project shows inter- and
+  intraplatform reproducibility of gene expression measurements.}, Nature
+  Biotechnology \textbf{24} (2006), no.~9, 1151--61.
+
+\bibitem{Tusher2001}
+V.~G. Tusher, R.~Tibshirani, and G.~Chu, \emph{Significance analysis of
+  microarrays applied to the ionizing radiation response.}, Proc Natl Acad Sci
+  U S A \textbf{98} (2001), no.~9, 5116--5121.
+
+\bibitem{Westfall1993Resampling-BasedMultipleTesting}
+P.H. Westfall and S.~Young, \emph{Resampling-based multiple testing}, Wiley,
+  New York, 1993.
+
+\bibitem{Xiao2007C++ProgramCramer-von}
+Yuanhui Xiao, Alexander Gordon, and Andrei Yakovlev, \emph{A c++ program for
+  the cram\'er-von mises two-sample test}, Journal of Statistical Software
+  \textbf{17} (2007), no.~8.
+
+\end{thebibliography}

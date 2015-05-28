@@ -1,0 +1,28 @@
+(TeX-add-style-hook "article"
+ (lambda ()
+    (TeX-run-style-hooks
+     "hyperref"
+     "xspace"
+     "calc"
+     "ifthen"
+     "bm"
+     "subfigure"
+     "graphicx"
+     "mathrsfs"
+     "amsthm"
+     "amssymb"
+     "amsmath"
+     "amsfonts"
+     "wordlike"
+     "fontenc"
+     "T1"
+     "times"
+     "inputenc"
+     "latin1"
+     "babel"
+     "english"
+     "beamerarticle"
+     "latex2e"
+     "art10"
+     "main")))
+

@@ -1,0 +1,602 @@
+% My own macros
+\newcommand{\ensuretext}[1]{\ensuremath{\text{#1}}}
+\def\ie{\ensuretext{\textit{i.e.,\xspace}}}
+\def\eg{\ensuretext{\textit{e.g.,\xspace}}}
+
+\newcommand{\uder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\med}{\ensuremath{\mathop{\mathrm{med}}}}
+\newcommand{\uPr}{\ensuremath{\mathop{\mathrm{Pr}}}}
+\newcommand{\uE}{\ensuremath{\mathop{\mathrm{E}}}}
+\newcommand{\ucov}[2]{\ensuremath{\mathop{\mathrm{cov}}(#1 ,\, #2)}}
+\newcommand{\ucor}[2]{\ensuremath{\mathop{\mathrm{corr}}(#1 ,\, #2)}}
+\newcommand{\ucorr}[2]{\ensuremath{\mathop{\mathrm{corr}}(#1 ,\, #2)}}
+\newcommand{\uvar}{\ensuremath{\mathop{\mathrm{var}}}}
+\newcommand{\ud}{\ensuremath{\mathrm{d}}}
+\newcommand{\uProj}{\ensuremath{\mathop{\mathrm{Proj}}}}
+\newcommand{\uimply}{\ensuremath{\;\Longrightarrow\;}}
+\newcommand{\uequiv}{\ensuremath{\;\Longleftrightarrow\;}}
+\newcommand{\uforall}{\textrm{ for all }}
+\newcommand{\uSym}[1]{\ensuremath{\mathrm{Sym}(#1)}}
+\newcommand{\uinner}[2]{\ensuremath{\langle #1 ,\; #2 \rangle}}
+\newcounter{myN}
+\newcommand{\urepeat}[2]{%
+  \setcounter{myN}{0}
+  \whiledo{\value{myN} < #1}{%
+    \stepcounter{myN}#2}}
+\newcommand{\uvec}[2][n]{\ensuremath{#2_1, \cdots, #2_{#1}}}
+\newcommand{\umark}[1]{\marginpar{%
+    \vskip-\baselineskip %raise the marginpar a bit
+    \raggedright\footnotesize
+    \itshape\hrule\smallskip#1\par\smallskip\hrule}}
+
+%%%%%%%%%%%%%% Front matters
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+%%%%%%%%%%%%% Main text
+
+\begin{frame}
+  \frametitle{Introduction}
+  \begin{itemize}
+  \item R is an open source implementation of the S language, you may
+    call it a free ``clone'' of commercial statistical computing
+    system S-plus.
+  \item R is a high level scripting language (like MatLab and Python
+    but unlike C and FORTRAN) which is easy to use.  It is best suited
+    for small (thousands of data points) to medium (under a million
+    data points) sized data analysis.
+  \item R is the \textit{de facto} programming language among
+    statisticians for developing statistical software.  In recent
+    years it has been gaining user base in other fields such as
+    bioinformatics (via the BioConductor project), mathematical
+    finance, medical imaging, and social sciences.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{R and R libraries}
+  \begin{itemize}
+  \item R installation.  Windows, Mac, Linux.  My lectures will be
+    based on R 3.2 for Windows. If you are not sure about using the
+    64-bit or 32-bit version, use the 32-bit one.
+  \item R is a functional language. Most commonly used functions are
+    provided by the R core, such as \texttt{lm()}.
+  \item Many useful functions are provided as external R libraries
+    that you can install by
+    \texttt{install.packages(``package-name'')}.
+  \item The idea of a \emph{repository} (Android/iPhone Apps).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{R and files}
+  \begin{itemize}
+  \item R can read/write from/to text-based files directly.
+  \item Example: \texttt{read.table()}; \texttt{read.csv()}.
+  \item Packages \texttt{xlsx} and \texttt{foreign} provide
+    functionalities to read files saved by Excel, Matlab, SAS, etc.
+  \item Caution: To be on the safe side, always use Excel/Matlab/SAS
+    etc to produce text-based data sheets (such as \texttt{.csv}
+    files) first.
+  \item Search: ``R data import/export'' for a free manual on general
+    strategy of read/write data.
+  \item R is a \emph{scripting} language. R scripts are simple text
+    files.
+  \item In principle, every text editor can be used to write R
+    programs. (RStudio, TextMate Tinn-R, Emacs/ESS)
+  \item Another type of R file: image files. Will discuss them later.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Running R interactively}
+  \begin{itemize}
+  \item Start R.  Try some file related operations. \texttt{getwd()},
+    \texttt{setwd()}, \texttt{dir()}.
+  \item Remark: \texttt{ls()} has a different meaning in R.
+  \item Some simple calculator-like operations. \texttt{\^},
+    \texttt{log()}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Objects}
+  \begin{itemize}
+  \item The most basic types of objects: numeric (integer, real),
+    complex, character, logical.
+  \item Combinations of the above building blocks: vector, matrix,
+    array, list, data.frame; string, factor, etc.
+  \item Other common objects: expression, function, formula, ordered.
+  \item Example: assign \texttt{x} a value by \texttt{<-} and by
+    \texttt{assign()}.  The latter is more suitable in a
+    function/loop.  Note that ``='' can also be used but its usage is
+    discouraged because ``='' has a different syntactic meaning in
+    function construction.
+  \item Use \texttt{ls()} to list all objects, \texttt{rm()} to remove
+    a particular object.
+  \item Use \texttt{str()} to find out the \emph{types} of an object.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Converting an object to a different type}
+  \begin{itemize}
+  \item You can convert (cast, coerce) one type of objects into another, provided that this conversion is reasonable.
+  \item Examples: \texttt{x <- c(rep(0, 3), rep(1, 4)); str(x);
+      as.complex(x); as.logical(x); as.character(x)}
+  \item Counter example: \texttt{as.numeric(``foo'')}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{String functions}
+  \begin{itemize}
+  \item \texttt{paste(a, b, sep=''foo'')}.
+  \item \texttt{strsplit(``foo-bar'', ``-'')}.
+  \item Show that math functions are invalid for strings.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Getting help}
+  \begin{itemize}
+  \item The RStudio way.
+  \item \texttt{help(``mean'')} or a shorter version \texttt{?''mean''}
+  \item Remark: the use of quotes indicates that ``mean'' is a
+    \emph{string object}.  Unquoted \texttt{mean} is a \emph{function
+      object}.  In this example, R is smart enough to figure out you
+    want to find help on a topic called mean even if you don't quote
+    this keyword, but it is a good habit to quote a string because
+    this subtle difference can be crucial under other circumstances.
+  \item Try \texttt{help(mean)}, \texttt{help(``+'')}, and
+    \texttt{help(+)}.
+  \item Last but not the least: Being an open source software, all
+    source code are open. Just type the function name will give you
+    the source code!
+  \item A few words about the generic functions such as
+    \texttt{summary()} and \texttt{summary.lm()}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{R commands, case sensitivity, etc}
+  \begin{itemize}
+  \item R commands are case sensitive, so ``Mike'' and ``mike'' are
+    two different commands/objects.
+  \item Object names must start with letters or a '.'.  By UNIX
+    convention, objects start with '.' is meant to be
+    \emph{invisible}, so a simple \texttt{ls()} won't list it.
+  \item You can put several mini-commands in one line by separating
+    them with ';'.
+  \item First and secondary prompt.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Saving objects, etc}
+  \begin{itemize}
+  \item When you quit R (by using command \texttt{q()}), R will ask
+    you to save image.  If you say yes (one single character 'y' is
+    OK), R will save all the objects (called an \emph{image of the
+      current workspace}) in a file \texttt{.RData} under the current
+    working directory (I'll call it \texttt{pwd} henceforth).
+  \item Next time when you start R in the same directory, R will pick
+    these objects up (unless you tell it \textbf{not} to do so
+    manually).
+  \item The command history is saved in a file \texttt{.Rhistory}
+    under \texttt{pwd}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Manually save/load a workspace}
+  \begin{itemize}
+  \item In real life, you almost always want to analyze a set of data
+    in different ways.  So you need to save the workspace in different
+    files and manually load them later.
+  \item \texttt{save.image(``foo.RData'')}, \texttt{save(obj1, obj2,
+      file=''foo.RData'')}.  The latter gives you finer control over
+    which object(s) to save.
+  \item When quitting R and R asks you to save workspace, answer
+    ``no''.
+  \item \texttt{load(``foo.RData'')} reloads the saved workspace.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A longer interactive session}
+  \begin{itemize}
+  \item Assign a vector by function \texttt{c()}.
+  \item Join two vectors by \texttt{c()}.
+  \item vector arithmetic (\texttt{(1:3)\^{}2}, \texttt{x + 2*y},
+    etc). It's usually much faster than a for loop (will be introduced
+    later).
+  \item Vector only arithmetic.  \texttt{sum()}, \texttt{prod},
+    \texttt{max()}, \texttt{min()} \texttt{sort()}, \texttt{order()},
+    \texttt{rank()}.
+  \item Advanced: \texttt{cumsum()}, \texttt{cumprod()},
+    \texttt{cummax()}, \texttt{cummin()}; \texttt{pmax(x,y)}, \texttt{pmin(x,y)}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Generating vectors}
+  \begin{itemize}
+  \item \texttt{-2:3}, \texttt{seq(0, 10, 2)}, \texttt{seq(10, 0, 2)}
+    (wrong), \texttt{seq(10, 0, -2)}.
+  \item \texttt{rep(TRUE, 3)}, \texttt{rep(c(TRUE, FALSE), 3)},
+    \texttt{rep(c(TRUE, FALSE), each=3)}.
+  \item \texttt{x <- rnorm(5)}.  I will get back to random number
+    generation later.
+  \item Generating a logical vector. \texttt{y <- x <= 0}.
+  \item Logic vector function \texttt{all()}, \texttt{any()}.
+  \item Generate a long vector from two (or more) short vectors
+    \texttt{c(1:3, 8:12)}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slicing (subsetting) a vector}
+  \begin{itemize}
+  \item \texttt{x <- rnorm(r)}, \texttt{length(x)}.
+  \item \texttt{x[2]}, \texttt{x[2:4]}, \texttt{x[c(3,1,2)]}.
+  \item Negative indices removes elements \texttt{x[c(-2, -4)]}.
+  \item Logical vector. \texttt{y <- c(TRUE, TRUE, FALSE, FALSE,
+      TRUE); x[y]}, \texttt{x[x<0]}.
+  \item Change a slice of a vector: \texttt{y[y < 0] <- -y[y < 0]} is
+    equivalent to \texttt{y <- abs(y)}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Named vectors}
+  \begin{itemize}
+  \item You can assign names to each element of a vector.
+  \item \texttt{fruit <- c(5, 10, 1, 20); names(fruit) <- c("orange", "banana", "apple", "peach")}
+  \item Check the names of \texttt{fruit}: \texttt{names(fruit)}.
+  \item Now you can slice the \texttt{fruit} vector by names:
+    \texttt{lunch <- fruit[c("apple","orange")]}
+  \item A named vector is sometimes called a hash table or a
+    dictionary in other computer languages.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A fairly complex named vector}
+  \begin{itemize}
+  \item Use Welch $t$-test as an example.
+  \item \texttt{x <- rnorm(5); y <- rnorm(5); w <- t.test(x, y); w}
+  \item Use \texttt{names(w)} or \texttt{attributes(w)} to see the
+    structure of \texttt{w}.
+  \item Use \texttt{w[[``p.value'']]} or \texttt{w\$p.value} to
+    extract a specific element.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Arrays and matrices}
+  \begin{itemize}
+  \item Arrays are high dimensional vectors.  A 2d-array is called a
+    \emph{matrix} and is one of the most used object in R.
+  \item Internally, all arrays are stored as (1d) vectors, the
+    differences are that
+    \begin{itemize}
+    \item there is a \texttt{dim} attribute of an array;
+    \item we can easily extract a sub-array without thinking about the internal index;
+    \item there are many matrix arithmetic tools available, and they are
+      much faster than doing loops over individual elements of a matrix.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Array/matrix manipulation }
+  \begin{itemize}
+  \item Generate a 2d array (matrix): \texttt{x <- 1:12; mat1 <-
+      array(x, dim = c(3, 4))}
+  \item The last command is equivalent to \texttt{mat2 <- matrix(x, nrow = 3, ncol = 4)}
+  \item But not equivalent to \texttt{mat3 <- matrix(x, nrow = 3, ncol = 4, byrow = TRUE)}.
+  \item Constructing a high-dimensional array \texttt{A3 <- array(x,
+      dim = c(3, 2, 2))}
+  \item Concatenate two matrices: \texttt{cbind()} and \texttt{rbind()}.
+  \item Merge two matrices (data frames) by a column (such as
+    patient's unique ID):  \texttt{merge(data1, data2, by=''ID'')}
+  \item Or by a few columns: \texttt{merge(data1, data2, by=c(``FirstName'', ``LastName'', ``DOB''))}
+  \item Always pay attention to data merging! Computers can not deal
+    with typos, lower/upper case, white space, nicknames, duplicates,
+    etc, very well.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Submatrix}
+  \begin{itemize}
+  \item You can use two one-dim slicing to get a submatrix (or an
+    element) from a matrix/array. \texttt{mat1[1:2, 2:3]}
+  \item Like named array/lists, we can assign row and column names to
+    matrices and use names to select submatrices.
+  \item \texttt{rownames(mat1) <- c(``a'', ``b'', ``c''); colnames(mat1) <- c(``foo'', ``bar'', ``ham'', ``egg'')}
+  \item \texttt{mat1[c(``a'', ``c''), c(``egg'', ``foo'')]}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Matrix calculations}
+  \begin{itemize}
+  \item \texttt{mat1 \%*\% mat2}; \texttt{mat1 * mat2};
+    \texttt{eigen(mat1)}; \texttt{solve(mat1[1:3, 1:3])};
+    \texttt{t(mat1)}.
+  \item Row/column operations: \texttt{rowSums(mat1)};
+    \texttt{colMeans(mat2)}. \texttt{apply(mat1, 1, sd)}.
+  \item Google is your best guide for finding a specific matrix
+    operation in R, such as SVD, QR decomp, tensor product, etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Data frames}
+  \begin{itemize}
+  \item Remember the main difference between vector and list: elements
+    in one vector must have the same type; list can contain different
+    objects.
+  \item A data frame is a matrix that mixes different types of data
+    (numbers, factors, strings, logical, etc).
+  \item Convenient but not efficient for computation.
+  \item You can convert a matrix into a data frame; the opposite is
+    trickier. You will get a string matrix if the data frame contains
+    non-numerical elements.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dealing with missing values}
+  \begin{itemize}
+  \item Two types of missing values: \texttt{NA} and \texttt{NaN}.
+  \item \texttt{max()}, \texttt{mean()} do not work as expected!
+  \item Per-function solution: \texttt{na.rm=TRUE}. This switch is not
+    always available.
+  \item To remove missing values, you need to identity them. But the
+    usual test, \texttt{x == NA} or \texttt{x == NaN}, does not work.
+  \item Workaround: \texttt{is.na(x)}, \texttt{is.nan(x)}.
+  \item \texttt{x <- x[!is.na(x)]} removes (destructively) all the NAs
+    from \texttt{x}.
+  \item For data frame, use \texttt{na.omit()} as a shortcut.
+  \item Finally, there are ways to \emph{impute} these missing values
+    from the rest of your data based on statistical models.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Branching}
+  \begin{itemize}
+  \item if-else structure.
+\begin{verbatim}
+    if (TEST) {
+     ...
+   } else {
+     ...
+   }
+}
+\end{verbatim}
+  \item A shortcut: \texttt{ifelse(TEST, outcome1, outcome2)}
+  \item \texttt{switch(x, var1=outcome1, var2=outcome2, ..., other.outcome)}
+  \item group commands by '\{cmd1; cmd2; ...; cmdm\}', the difference
+    between one-liner and full grouped structure.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Loop}
+  \begin{itemize}
+  \item The \texttt{for} loop.
+\begin{verbatim}
+  for (i in counter.vector){
+   ...
+}
+\end{verbatim}
+  \item Double/triple loops.
+  \item \texttt{repeat}, \texttt{while} loop and the use of
+    \texttt{break}/\texttt{next}.
+  \item The \texttt{stop(MESSAGE)} function.
+  \item The \texttt{foreach} loop.
+  \item About efficiency.  Matrix multiplication example.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile, shrink=2]
+  \frametitle{Example of loop/branch}
+\begin{verbatim}
+Y <- sample(c(1:10, 1:10))
+Y.coded <- rep("low", 20)
+for (i in 1:length(Y)){
+  if (Y[i] <= 3) {
+    Y.coded[i] <- "low"
+  } else if (Y[i] <= 6) {
+    Y.coded[i] <- "med"
+  } else {
+    Y.coded[i] <- "high"
+  }
+}
+Y.coded <- ordered(Y.coded, levels=c("low",
+        "med", "high"))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Logic functions}
+  \begin{itemize}
+  \item Logical operators: \texttt{<}, \texttt{<=}, \texttt{>}, \texttt{>=}.
+  \item Testing equality: \texttt{==}.  This is another reason why
+    \texttt{=} should not be used as the assignment operator.
+  \item Testing inequality: \texttt{!=}.
+  \item Boolean operation: \texttt{!}, \texttt{\&}, \texttt{|}.
+  \item \texttt{all(vec)}, \texttt{any(vec)}; '\&\&', '||'.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Writing your own functions}
+  \begin{itemize}
+  \item Basic usage: \texttt{myfunc <- function(arg1, arg2, ...) expression}
+  \item The good habit: use \texttt{return()} statement.
+  \item binary operators.
+  \item Named arguments and defaults, calling conventions.
+  \item The '...' argument.
+  \item Assignments within functions, super-assignment operator,
+    \texttt{assign("name", var)} and \texttt{get("name")}.
+  \item Recursive functions. Not a good idea though.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,fragile]
+  \frametitle{Function examples}
+\begin{verbatim}
+twosam <- function(y1, y2, trim=0) {
+  n1 <- length(y1); n2 <- length(y2)
+  yb1 <- mean(y1, trim=trim)
+  yb2 <- mean(y2, trim=trim)
+  s1 <- var(y1); s2 <- var(y2)
+  s <- ((n1-1)*s1 + (n2-1)*s2)/(n1+n2-2)
+  tst <- (yb1-yb2)/sqrt(s*(1/n1 + 1/n2))
+  ## note the use of <<-
+  N1 <<- n1
+  return(tst)
+}
+
+x <- rnorm(8); y <- rnorm(10)
+twosam(x, y, 0.2)
+
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Graphical devices}
+  \begin{itemize}
+  \item Interactive: \texttt{x11()}, \texttt{windows()}, and
+    \texttt{quartz()}.
+  \item Non-interactive: \texttt{postscript()}, \texttt{pdf()},
+    \texttt{png()}, \texttt{tiff()}, \texttt{jpeg}, etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Plotting commands}
+  \begin{itemize}
+  \item High level commands, such as the \emph{generic} function
+    \texttt{plot()}, which creates a new plot on the graphics devices
+    (so you don't have to create a device in advance).
+  \item Low level commands, such as \texttt{points()} and
+    \texttt{lines()}.  They do not create new plot, but add simple
+    features to an existing one.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,fragile]
+  \frametitle{High level plotting commands}
+\begin{verbatim}
+x <- 1:12; y <- 1:12 + rnorm(12)
+plot(x,y)
+
+A <- factor(rep(c("low", "med", "high"), each=4),
+ levels=c("low", "med", "high"))
+
+plot(A)
+plot(A,y)
+
+y2 <- 2*y + rnorm(12)
+plot(y2 ~ x + A)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Low level plotting commands}
+  \begin{itemize}
+  \item \texttt{points()}
+  \item \texttt{lines()}
+  \item \texttt{abline()} and it variants.
+  \item \texttt{text()}
+  \item \texttt{title()}
+  \item \texttt{axis()}
+  \item \texttt{legend()}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,fragile]
+  \frametitle{Low-level plotting commands}
+\begin{verbatim}
+plot(x,y)
+points(rnorm(40)+5, rnorm(40)+4, col=2, pch=2)
+abline(v=8.0)
+abline(h=5.0, col=3, lty=2, lwd=2)
+title("An example")
+
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Remarks on graphics}
+  \begin{itemize}
+  \item You can put several subfigures in one figure (\texttt{par(mfrow=c(2,3))}).
+  \item There are many more built-in high/low graphical procedures
+    that you can use.
+  \item Packages such as \texttt{lattice}, \texttt{ggplot2} provides
+    even more graphical procedures. You can also make 3D interactive
+    graphics, movies, etc.
+  \item If we still have time ... \texttt{demo(graphics)}
+  \item If we still have plenty of time ... \texttt{library(rgl); demo(rgl)}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Useful advanced topics not covered in this short course}
+  \begin{itemize}
+  \item Object-oriented programming and functional programming. R is a
+    strong object-oriented programming language in which \emph{every}
+    data type is an object.  It also has nice support of functional
+    programming. Google ``Object-Oriented Programming, Functional
+    Programming and R'' by John M. Chambers.
+  \item High-performance computing. R has many ways (packages) to
+    utilize modern computing architecture, such as multi-core computer
+    (with or without shared memory), cluster-computers with message
+    passing interface (MPI), and GPU computing.  Search ``R,
+    HighPerformanceComputing''.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Useful advanced topics not covered in this short course (II)}
+  \begin{itemize}
+  \item R can call C/Fortran in an R function to boost performance. It
+    can also call Python functions (via \texttt{rPython} package) or
+    other scripting language via \texttt{system()}. It can also be
+    called from many other languages such as Perl or Python.
+  \item R can talk to SQL databases. (\texttt{RODBC} package)
+  \item R can even be used to develop GUI applications. \texttt{fgui},
+    \texttt{RGtk2}, etc.
+  \item Making your own R package, which is essentially a bundle of R
+    functions, help on these functions, some datasets. This is the
+    standard way to share your method with your peers. Search
+    ``Writing R extensions'' for a free reference manual.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Bibliography}
+  \bibliographystyle{amsplain}
+  \bibliography{xing}
+\end{frame}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "presentation"
+%%% TeX-PDF-mode: t
+%%% End:

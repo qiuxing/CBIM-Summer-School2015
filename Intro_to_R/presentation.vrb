@@ -1,0 +1,9 @@
+\frametitle{Low-level plotting commands}
+\begin{verbatim}
+plot(x,y)
+points(rnorm(40)+5, rnorm(40)+4, col=2, pch=2)
+abline(v=8.0)
+abline(h=5.0, col=3, lty=2, lwd=2)
+title("An example")
+
+\end{verbatim}

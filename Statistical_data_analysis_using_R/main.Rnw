@@ -1,0 +1,593 @@
+% My own macros
+\newcommand{\ensuretext}[1]{\ensuremath{\text{#1}}}
+\def\ie{\ensuretext{\textit{i.e.,\xspace}}}
+\def\eg{\ensuretext{\textit{e.g.,\xspace}}}
+
+\newcommand{\uder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\CP}{\ensuremath{\mathbb{CP}}}
+\newcommand{\GL}[1]{\ensuremath{\mathrm{GL}(#1)}}
+\newcommand{\SL}[1]{\ensuremath{\mathrm{SL}(#1)}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\RP}{\ensuremath{\mathbb{RP}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\med}{\ensuremath{\mathop{\mathrm{med}}}}
+\newcommand{\uPr}{\ensuremath{\mathop{\mathrm{Pr}}}}
+\newcommand{\uE}{\ensuremath{\mathrm{E}}}
+\newcommand{\ucov}[2]{\ensuremath{\mathop{\mathrm{cov}}\left(#1 ,\, #2\right)}}
+\newcommand{\ucor}[2]{\ensuremath{\mathop{\mathrm{corr}}\left(#1 ,\, #2\right)}}
+\newcommand{\ucorr}[2]{\ensuremath{\mathop{\mathrm{corr}}\left(#1 ,\, #2\right)}}
+\newcommand{\uvar}{\ensuremath{\mathop{\mathrm{var}}}}
+\newcommand{\ud}{\ensuremath{\mathrm{d}}}
+\newcommand{\uProj}{\ensuremath{\mathop{\mathrm{Proj}}}}
+\newcommand{\uimply}{\ensuremath{\;\Longrightarrow\;}}
+\newcommand{\uequiv}{\ensuremath{\;\Longleftrightarrow\;}}
+\newcommand{\uforall}{\textrm{ for all }}
+\newcommand{\us}[1]{\ensuremath{\mathrm{Sym}(#1)}}
+\newcommand{\uo}[2]{\mathrm{Orb}_{#1}(#2)}
+\newcommand{\ustab}[1]{\mathrm{Stab}(#1)}
+\newcommand{\uinner}[2]{\ensuremath{\langle #1 ,\; #2 \rangle}}
+\newcounter{myN}
+\newcommand{\urepeat}[2]{%
+  \setcounter{myN}{0}
+  \whiledo{\value{myN} < #1}{%
+    \stepcounter{myN}#2}}
+\newcommand{\uvec}[2][n]{\ensuremath{#2_1, \cdots, #2_{#1}}}
+\newcommand{\umark}[1]{\marginpar{%
+    \vskip-\baselineskip %raise the marginpar a bit
+    \raggedright\footnotesize
+    \itshape\hrule\smallskip#1\par\smallskip\hrule}}
+
+<<setup, include=FALSE>>=
+library(knitr)
+opts_chunk[["set"]](fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize', fig.width=4.5, fig.height=4.5, out.width='.48\\linewidth')
+@
+
+<<echo=FALSE, results='hide'>>=
+# additional setup
+options(width=60)  # make the printing fit on the page
+set.seed(11211)   # make the results repeatable
+@
+
+%%%%%%%%%%%%%% Front matters
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+%%%%%%%%%%%%% Main text
+
+\section{Probability distributions}
+
+\begin{frame}
+  \frametitle{Random variables and probability}
+  \begin{itemize}
+  \item A brief overview of random variables. \item $X(\omega) : \Omega
+    \to \R$.
+  \item Binary (Bernoulli), a special case of discrete r.v.
+  \item Discrete (binomial, Poisson, negative binomial, ...)
+  \item Continuous (normal, chi-squared, logistic, ...)
+  \item Notion of independence/dependence; $i.i.d.$; what constitutes a
+    \textbf{sample}?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Built-in probability functions}
+<<builtin-fun>>=
+x1 <- rgeom(10, 1/3)       #geometric r.v., discrete.
+x2 <- rbinom(10, 1, 1/2)   #standard Bernoulli (fair coin)
+x3 <- rnorm(10)            #standard normal (mean=0, sd=1)
+x4 <- rnorm(100, 5, 2)    #mean=5, sd=2.
+mean(x4); sd(x4)           #convergence
+@ 
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Built-in functions (II)}
+  \begin{itemize}
+  \item Probability density function, \textit{a.k.a.} \textit{p.d.f.}.
+    qDiscrete/continuous.  In R: \texttt{dbinom()}, \texttt{dnorm()},
+    \texttt{dchisq()}, etc.
+  \item Probability distribution function, \textit{a.k.a.}
+    \textit{c.d.f.}. In R: \texttt{p<name>}.
+  \item Quantile function. In R: \texttt{q<name>}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Useful functions}
+  \begin{itemize}
+  \item \texttt{summary()}, \texttt{fivenum()}, \texttt{stem()}.
+  \item \texttt{hist()}, \texttt{density()}, \texttt{rug()},
+    \texttt{ecdf()}.
+  \item QQ-plots: follow the book example.
+  \item Formal normality tests. Useful in residual analysis (goodness of
+    fit).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+<<>>=
+grid <- seq(min(x4), max(x4), 0.01)
+plot(ecdf(x4))
+lines(grid, pnorm(grid, 5, 2), lty=2, col="red", lwd=2)
+@   
+\end{frame}
+
+\section{Group comparisons}
+
+\begin{frame}
+  \frametitle{Quick review of hypothesis testing}
+  \begin{itemize}
+  \item A typical scenario in data analysis is to compare groups.
+  \item Even if there is no ``true difference'', sample means
+    calculated from different groups will be different due to
+    randomness.
+  \item Hypothesis testing: $H_{0}$: no group effects versus $H_{1}$:
+    group effects are not zero.  $p$-value in a nutshell: How likely
+    we'll end up with the observed group difference under $H_{0}$?
+  \item Hypothesis testing can be generalized to all correlation
+    models, regression models, etc.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{One and two sample tests for continuous data}
+  \begin{itemize}
+  \item \texttt{t.test()} and variants (one-group v. two group;
+    one-sided v. two sided; paired v. unpaired).
+  \item \texttt{var.test()}.  The two-fold rule-of-thumb and the Welch
+    correction. 
+  \item Parametric v. nonparametric test.
+  \item \texttt{wilcox.test()} (paired, unpaired).
+  \item A few words about \texttt{shapiro.test()}. ``Passing'' this
+    test ($p>0.05$) for very small sample size does not mean much.
+    Don't do 3 mice versus 3 mice experiments!!
+  \item Omnibus test: Kolmogorov-Smirnov test \texttt{ks.test()},
+    Cramer-von Mises test (\texttt{cvm.test()}), etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Two-sample $t$-test and Wilcoxon ranksum test}
+<<ttest, results="hide">>=
+X <- rnorm(15); Y <- rnorm(15) + .8*X
+t.test(X, Y)    # Default: two-sided, nonpaired, with correction.
+XY <- c(X, Y)
+Grp <- c(rep("Control", length(X)), rep("Treatment", length(Y)))
+t.test(XY~Grp)  #the equivalent formula interface.
+# one-sided test 
+t.test(XY~Grp, alternative="less") #less means X<Y
+# Wilcoxon ranksum test is the nonparametric counterpart
+## of two sample t-test
+wilcox.test(XY~Grp, alternative="less")
+@ 
+\end{frame}
+
+\begin{frame}[fragile]{Two-sample tests (II)}
+<<ttest-plot>>=
+## Boxplot of the data. It is good to plot the actual data
+## (jittered a little bit) on the boxplot.
+boxplot(XY~Grp, outpch = NA, xlab="", ylab="Value")
+stripchart(XY ~ Grp, vertical=TRUE, method="jitter", add=TRUE)
+@ 
+\end{frame}
+
+\begin{frame}[fragile]{Paired tests}
+<<paired-t, results='hide'>>=
+## paired, one-sided test (Y greater than X
+Grp2 <- c(rep("Pre", length(X)), rep("Post", length(Y)))
+t.test(X, Y, paired=TRUE)
+# Wilcoxon signed rank test
+wilcox.test(X, Y, paired=TRUE)
+@ 
+\end{frame}
+
+\begin{frame}[fragile]{Paired test (II)}
+<<paired-t-plot>>=
+boxplot(X, Y, outpch = NA, xlab="", names=c("Pre", "Post"),
+        ylab="Value", col=c("lightgrey", "lightblue"))
+stripchart(list(X, Y), vertical=TRUE, pch=16, add=TRUE)
+## Add line segments to link pre/post together
+s <- seq(length(X))
+segments(rep(1,length(X))[s],X[s],rep(2,length(X))[s],Y[s])
+
+@ 
+\end{frame}
+
+
+\section{Linear models and ANOVA}
+\label{sec:linear-models}
+
+\begin{frame}{Linear Regression}
+  \begin{itemize}
+  \item Linear regression is the most popular way to model
+    \emph{linear} relationship between covariates ($\mathbf{X}$) and
+    continuous responses ($\mathbf{Y}$).
+    \begin{equation}
+      \label{eq:lin-mod}
+      \mathbf{Y} = \mathbf{X} \bm{\beta} + \bm{\epsilon},
+    \end{equation}
+    Here $\bm{\epsilon}$ is the error term and is usually (but not
+    always) modeled as multivariate normal random vector.
+  \item Statistical inference of LM includes estimating $\bm{\beta}$,
+    provide an overall $p$-value for goodness-of-fit, and individual
+    $p$-values for each $\beta_{k}$.
+  \item Advanced topic not covered here: Model selection based on
+    AIC/BIC or LASSO/elastic net.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Analysis of Variance for linear regression}
+  \begin{itemize}
+  \item The null and alternative hypothesis of nested linear models \texttt{mod1} and \texttt{mod0}.
+  \item $H_{0}$: Additional covariates in \texttt{mod1} do not have significant effect.
+  \item $H_{1}$: Some covariates in \texttt{mod1} have significant effect.
+  \item The $F$-test
+    \begin{equation}
+      \label{eq:Ftest}
+      F = c \frac{\mathrm{RSS}_{0} - \mathrm{RSS}_{1}}{\mathrm{RSS}_{1}}.
+    \end{equation}
+    Here $c$ is a constant that depends on the degrees of freedom of
+    both models.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ANOVA for multi-group comparisons}
+  \begin{itemize}
+  \item The same variance decomposition principle can be used to
+    analyze group-effect in multi-group comparisons.
+  \item One-way ANOVA $F$-test. Nonparametric counterpart: Kruskal-Wallis test.
+  \item Repeated measures (paired) ANOVA. Nonparametric counterpart: 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{LM example}
+<<lm, results='hide'>>=
+mod1 <- lm(Y~X)
+mod0 <- lm(Y~1)   #the null model
+
+summary(mod1)
+anova(mod1, mod0) #p-value is the same as F-pvalue in mod1
+
+@   
+\end{frame}
+
+\begin{frame}[fragile]{LM plot}
+<<lm-plot, out.width='.6\\linewidth'>>=
+
+plot(Y~X)
+abline(mod1)
+
+@   
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{One-way ANOVA}
+
+<<one-anova, results='hide'>>=
+Z <- rnorm(10)
+XYZ <- c(X, Y, Z)
+Grp3 <- factor(c(rep("A", length(X)), rep("B", length(Y)),
+                 rep("C", length(Z))))
+
+## one-way ANOVA F-test
+anova(lm(XYZ ~ Grp3))
+## Function aov() is a shortcut
+summary(aov(XYZ ~ Grp3))
+
+# Kruskal-Wallis test (nonparametric)
+kruskal.test(XYZ, Grp3)  
+@   
+\end{frame}
+
+\begin{frame}[fragile]
+<<one-anova-plot>>=
+boxplot(XYZ~Grp3, outpch = NA, xlab="", ylab="Value")
+stripchart(XYZ ~ Grp3, vertical=TRUE, method="jitter",
+           add=TRUE, pch=1)
+@   
+\end{frame}
+
+\begin{frame}{Post-hoc analysis}
+  \begin{itemize}
+  \item More than often, we want to know which pairwise group
+    comparison is significant.
+  \item Proper way: 1. Test for overall significant. 2. Apply a
+    suitable \textit{post hoc} analysis which controls the overall
+    type I error.
+  \item Methods: Tukey's \textit{post-hoc} analysis procedure for parametric test; 
+  \item Common mistakes: 1. Pairwise $t$-test without adjustment.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Post-hoc analysis example}
+
+<<posthoc, results='hide'>>=
+## Tukey's procedure. Good for parametric test.
+TukeyHSD(aov(XYZ ~ Grp3))
+
+## Dunn's test. Good for nonparametric test.
+# install.packages("dunn.test")
+library("dunn.test")
+## Here method="hs" means Holm-Sidak adjustment
+dunn.test(XYZ, Grp3, method="hs")
+
+@   
+\end{frame}
+
+\begin{frame}{Repeated measures ANOVA}
+  \begin{itemize}
+  \item Imaging that you are observing data collected from 10 subjects
+    (5 girls and 5 boys) at three time points: Day 0, 1, and 2.
+  \item You want to test whether there is a significant Day effect or
+    a Gender effect.
+  \item Ordinary regression or one-way ANOVA is not appropriate due to
+    correlation between errors.
+  \item Solution: Repeated measures ANOVA and its nonparametric
+    counterpart, Friedman's test.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Repeated measures ANOVA example (I)}
+<<rep-anova, results='hide'>>=
+
+## generate some longitudinal data
+Gender <- rep(c("Female", "Male"), each=5)
+Day0 <- rnorm(10) + ifelse(Gender=="Female", 3, 0)
+Day1 <- Day0 + ifelse(Gender=="Female", 0, 1) + rnorm(10)
+Day2 <- Day1 + ifelse(Gender=="Female", 0, 1) + rnorm(10)
+## Subject names 
+SN <- paste("sub", rep(1:10, 3), sep="")
+## combine them together
+mydata <- data.frame(Y=c(Day0, Day1, Day2),
+                     Day=rep(0:2, each=10),
+                     Gender=rep(Gender, 3),
+                     Subject=SN)
+@ 
+\end{frame}
+
+\begin{frame}[fragile]
+<<rep-anova-plot, results='hide', out.width='.6\\linewidth'>>=
+
+plot(Y~Day, data=mydata, col=ifelse(Gender=="Female", "red", "black"))
+for (i in 1:10){
+    lines(Y~Day, data=mydata[mydata[, "Subject"]==paste("sub", i, sep=""),],
+          col=ifelse(Gender=="Female", "red", "black"))
+}
+
+@ 
+\end{frame}
+
+\begin{frame}[fragile]{Repeated measures ANOVA example (II)}
+<<rep-anova-analysis, results='hide'>>=
+
+mod2 <- aov(Y ~ Day + Error(Subject), data=mydata)
+summary(mod2)
+## Two-way ANOVA with 
+mod3 <- aov(Y ~ Day+Gender + Error(Subject), data=mydata)
+summary(mod3)
+
+## Nonparametric version in simple case
+friedman.test(Y ~ Day | Subject, data=mydata)
+
+@ 
+\end{frame}
+
+\begin{frame}{Advanced linear regression and ANOVA techniques}
+  \begin{itemize}
+  \item A full-fledged linear mixed effect model can have many fixed
+    and random factors, with the randomness encoded in both the
+    intercept and slope terms. Package: \texttt{lme4}, function
+    \texttt{lmer()}.
+  \item Robust regression. \texttt{MASS}, \texttt{rlm()}.
+  \item Ordinal regression.  \texttt{polr()}, \texttt{MASS}.
+  \end{itemize}
+\end{frame}
+
+\section{Logistic Regression}
+\label{sec:logistic-models}
+
+\begin{frame}
+\begin{itemize}
+\item What if the response variable is \emph{binary}?
+\item Answer: Logistic (or probit) regression.
+  \begin{equation}
+    \label{eq:logistic}
+    \mathrm{logit} p := \log\frac{p}{1-p} = \mathbf{X}\bm{\beta}.
+  \end{equation}
+\item The above model is a special case of \emph{generalized linear
+    model}, which also includes probit regression, Poisson regression,
+  etc.
+\item Function: \texttt{glm()}. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Logistic regression}
+<<glm, results='hide'>>=
+
+Smoke <-  c(rep(0, 10), rep(1, 10), rep(2, 10), rep(3, 10))
+Cancer <- c(rep(0, 10), rbinom(10, 1, .3), rbinom(10, 1, .5), rbinom(10, 1, .8))
+mod6 <- glm(Cancer ~ Smoke, family=binomial(link=logit))
+summary(mod6)
+@   
+\end{frame}
+
+\begin{frame}{Other advanced regression models}
+\begin{itemize}
+\item Predicting expected rates of counting data in Poisson
+  regression. Again \texttt{glm()}, with link function set to Poisson.
+\item GLMs can also have random effect. Use \texttt{glmer()} from the
+  \texttt{lme4} package.
+\item Nonparametric regression, additive model, etc.
+\end{itemize}
+\end{frame}
+
+\section{Introduction to categorical data analysis}
+\label{sec:categ-data-analys}
+
+\begin{frame}{$p\times q$ Contingency table}
+  \begin{itemize}
+  \item The association between smoking (as a binary variable) and
+    lung cancer.
+  \item Once summarized, it is a $2\times 2$ table.
+  \item Suitable statistical test: $\chi^{2}$-test (Chi-square test,
+    an approximate parametric test) and Fisher's exact test
+    (nonparametric).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Example of $2\times 2$ Contingency table}
+<<cont.tab, results='hide'>>=
+
+Smoke.binary <- ifelse(Smoke==0, 0, 1)
+ctab1 <- table(Smoke.binary, Cancer)
+ctab1
+ctab2 <- table(Smoke, Cancer)        #4x2 table
+chisq.test(ctab1)
+fisher.test(ctab1)
+chisq.test(ctab2)
+fisher.test(ctab2)
+@   
+
+\end{frame}
+
+\begin{frame}{Generalized Cochran-Mantel-Haenszel Tests}
+  \begin{itemize}
+  \item Cochran-Mantel-Haenszel test (function
+    \texttt{mantelhaen.test()}) can test $p\times q$ table observed at
+    several different timen points.
+  \item Package \texttt{vcdExtra} has a function \texttt{CMHtest()}
+    that can test the association between two \emph{ordinal} factors,
+    possibly observed at several time points.
+  \end{itemize}
+\end{frame}
+
+\section{Other topics}
+\label{sec:other-topics}
+
+\begin{frame}
+  \frametitle{Linear discriminant analysis}
+  \begin{itemize}
+  \item A predictive model that finds the best \emph{linear}
+    separation between two classes.
+  \item It is a form of \emph{supervised learning} and is an
+    alternative to logistic regression.
+  \item \texttt{lda()} of \texttt{MASS}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{LDA Example}
+<<lda, results='hide'>>=
+
+## Group A.
+A <- data.frame(X=rnorm(30, 0, 1), Y=rnorm(30, 0, 2))
+B <- data.frame(X=rnorm(20, 2, 1), Y=rnorm(20, 3, 2))
+mydata2 <- cbind(rbind(A, B),
+                 Grp=c(rep("A", 30), rep("B", 20)))
+library(MASS)
+## attach() makes objects in a data.frame visible
+### at the top-level
+rm(list=c("X","Y","Grp")); attach(mydata2)
+mod7 <- lda(Grp~X+Y)
+ss1 <- mod7$scaling            # discriminant function coefs
+ss1
+cc1 <- mean(ss1[1] * X + ss1[2] * Y) #cutoff point
+cc1
+detach(mydata2)
+
+@ 
+\end{frame}
+
+\begin{frame}[fragile]
+<<lda-plot, out.width='.6\\linewidth'>>=
+
+with(mydata2, plot(X, Y, pch=ifelse(Grp=="A", 1, 19)))
+abline(cc1/ss1[2], -ss1[1]/ss1[2], lty=2)
+legend("topright",
+       legend=c("A", "B"),
+       pch=c(1,19))
+
+@   
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{ROC Curves}
+  \begin{itemize}
+  \item Receiver operating characteristic (ROC) curve.  Package: \texttt{ROCR}
+    package.
+  \item Trade-off between type I and type II errors.
+  \end{itemize}
+  {\centering \includegraphics[width=.48\linewidth]{roc}}
+\end{frame}
+
+\begin{frame}{Survival Analysis}
+  \begin{itemize}
+  \item Assume that we want to establish the association between some
+    clinical covariates and the \emph{survival time} of patients.
+  \item What if many subjects survived the trial?
+  \item Censored data shouldn't be treated as ``missing'' or
+    ``truncated''.
+  \item One of the most popular model: Cox proportional hazards model.
+    Function: \texttt{coxph()} from the \texttt{survival} package.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Cluster analysis}
+  \begin{itemize}
+  \item Hierarchical cluster analysis.
+  \item Distance-based methods. \texttt{kmeans()}, \texttt{skmeans()}.
+  \item Model-based approaches. Package\texttt{Mclust} includes
+    several most popular models.
+  \item Specialized methods. Time course data etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Power analysis}
+  \begin{itemize}
+  \item What you need: A comparable study from which you can find:
+    $n_{1}$, $n_{2}$, $d= \dfrac{\left|\mu_{1}-
+        \mu_{2}\right|}{\sigma_{\mathrm{pool}}}$.
+  \item Justify that the proposed study is comparable to that prior study.  
+  \item Package: \texttt{pwr}, \texttt{pwr.t2n.test()},
+    \texttt{pwr.anova.test()} etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other topics}
+  \begin{itemize}
+  \item Financial engineering, time series data analysis, machine
+    learning, Bayesian inference, image analysis, high-performance
+    computing, etc.
+  \item Differential equation solvers, inverse problem (will be
+    discussed in Profs. Wu and Miao's class).
+  \item Bioinformatics related topics will be discussed in detail on
+    6/3.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Bibliography}
+  \bibliographystyle{amsplain}
+  \bibliography{xing}
+\end{frame}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "presentation"
+%%% TeX-PDF-mode: t
+%%% End:

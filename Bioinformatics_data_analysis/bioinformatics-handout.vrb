@@ -1,0 +1,14 @@
+\begin {Schunk}
+\begin{Sinput}
+> ## Run the hyper-geometric test for significance.
+> rr.gsea <- hyperGTest(params)
+> ## Run a reasonable multiple testing procedure
+> pp.gsea <- pvalues(rr.gsea)
+> pp.gsea.bh <- p.adjust(pp.gsea, "BH")
+> ## Output a table as report.
+> nn <- sum(pp.gsea.bh<0.05)
+> tab.gsea <- summary(rr.gsea,pvalue=pp.gsea[nn+1])
+> write.csv(tab.gsea, file="results/table-gsea.csv")
+\end{Sinput}
+\end{Schunk}
+25 pathways are significant. Show the \texttt{table-gsea.csv} file.

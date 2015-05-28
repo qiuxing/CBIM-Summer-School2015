@@ -1,0 +1,41 @@
+\documentclass{beamer}          % presentation mode
+
+\usetheme{Warsaw}
+\usecolortheme{seahorse}
+\setbeamercovered{transparent}
+\defbeamertemplate{headline}{body}% replace Beamer headline with a long logo
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=1.0\paperwidth,ht=.25in,dp=1ex]
+      {auhor in head/foot}
+      \includegraphics[height=.25in]{ur-logo2}
+    \end{beamercolorbox}%
+  }
+}
+\setbeamertemplate{headline}[body]
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsfonts,amsmath,amssymb,amsthm,mathrsfs,graphicx,subfigure}
+\usepackage{bm,ifthen,calc,xspace}
+
+\title{Introduction to R}
+\author[Xing Qiu]{Xing~Qiu}
+\institute[University of Rochester] % (optional, but mostly needed)
+{Department of Biostatistics and Computational Biology, University of Rochester}
+
+\date{Summer School on Computational Immunology \\
+  6/1/2015, Rochester, New York}
+
+\mode<presentation>{\subject{R computing}}
+
+\begin{document}
+\beamerdefaultoverlayspecification{<+->} %use this to turn on delays, <*> to turn off delays for a specific environment.
+
+\input{main}
+
+\end{document}

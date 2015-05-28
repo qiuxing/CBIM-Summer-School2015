@@ -1,0 +1,7 @@
+\frametitle{ROC Curves}
+  \begin{itemize}
+  \item Receiver operating characteristic (ROC) curve.  Package: \texttt{ROCR}
+    package.
+  \item Trade-off between type I and type II errors.
+  \end{itemize}
+  {\centering \includegraphics[width=.48\linewidth]{roc}}

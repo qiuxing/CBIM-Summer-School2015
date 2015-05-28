@@ -1,0 +1,244 @@
+% My own macros
+\newcommand{\ensuretext}[1]{\ensuremath{\text{#1}}}
+\def\ie{\ensuretext{\textit{i.e.,\xspace}}}
+\def\eg{\ensuretext{\textit{e.g.,\xspace}}}
+
+\newcommand{\uder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\CP}{\ensuremath{\mathbb{CP}}}
+\newcommand{\GL}[1]{\ensuremath{\mathrm{GL}(#1)}}
+\newcommand{\SL}[1]{\ensuremath{\mathrm{SL}(#1)}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\RP}{\ensuremath{\mathbb{RP}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\med}{\ensuremath{\mathop{\mathrm{med}}}}
+\newcommand{\uPr}{\ensuremath{\mathop{\mathrm{Pr}}}}
+\newcommand{\uE}{\ensuremath{\mathrm{E}}}
+\newcommand{\ucov}[2]{\ensuremath{\mathop{\mathrm{cov}}\left(#1 ,\, #2\right)}}
+\newcommand{\ucor}[2]{\ensuremath{\mathop{\mathrm{corr}}\left(#1 ,\, #2\right)}}
+\newcommand{\ucorr}[2]{\ensuremath{\mathop{\mathrm{corr}}\left(#1 ,\, #2\right)}}
+\newcommand{\uvar}{\ensuremath{\mathop{\mathrm{var}}}}
+\newcommand{\ud}{\ensuremath{\mathrm{d}}}
+\newcommand{\uProj}{\ensuremath{\mathop{\mathrm{Proj}}}}
+\newcommand{\uimply}{\ensuremath{\;\Longrightarrow\;}}
+\newcommand{\uequiv}{\ensuremath{\;\Longleftrightarrow\;}}
+\newcommand{\uforall}{\textrm{ for all }}
+\newcommand{\us}[1]{\ensuremath{\mathrm{Sym}(#1)}}
+\newcommand{\uo}[2]{\mathrm{Orb}_{#1}(#2)}
+\newcommand{\ustab}[1]{\mathrm{Stab}(#1)}
+\newcommand{\uinner}[2]{\ensuremath{\langle #1 ,\; #2 \rangle}}
+\newcounter{myN}
+\newcommand{\urepeat}[2]{%
+  \setcounter{myN}{0}
+  \whiledo{\value{myN} < #1}{%
+    \stepcounter{myN}#2}}
+\newcommand{\uvec}[2][n]{\ensuremath{#2_1, \cdots, #2_{#1}}}
+\newcommand{\umark}[1]{\marginpar{%
+    \vskip-\baselineskip %raise the marginpar a bit
+    \raggedright\footnotesize
+    \itshape\hrule\smallskip#1\par\smallskip\hrule}}
+
+
+
+
+
+%%%%%%%%%%%%%% Front matters
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%% Main text
+
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(ALL): there is no package called 'ALL'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Attaching package: 'genefilter'\\\#\# \\\#\# The following object is masked from 'package:base':\\\#\# \\\#\#\ \ \ \  anyNA\\\#\# \\\#\# Loading required package: Biobase\\\#\# Loading required package: BiocGenerics\\\#\# Loading required package: parallel\\\#\# \\\#\# Attaching package: 'BiocGenerics'\\\#\# \\\#\# The following objects are masked from 'package:parallel':\\\#\# \\\#\#\ \ \ \  clusterApply, clusterApplyLB, clusterCall,\\\#\#\ \ \ \  clusterEvalQ, clusterExport, clusterMap,\\\#\#\ \ \ \  parApply, parCapply, parLapply, parLapplyLB,\\\#\#\ \ \ \  parRapply, parSapply, parSapplyLB\\\#\# \\\#\# The following object is masked from 'package:stats':\\\#\# \\\#\#\ \ \ \  xtabs\\\#\# \\\#\# The following objects are masked from 'package:base':\\\#\# \\\#\#\ \ \ \  anyDuplicated, append, as.data.frame, as.vector,\\\#\#\ \ \ \  cbind, colnames, duplicated, eval, evalq, Filter,\\\#\#\ \ \ \  Find, get, intersect, is.unsorted, lapply, Map,\\\#\#\ \ \ \  mapply, match, mget, order, paste, pmax,\\\#\#\ \ \ \  pmax.int, pmin, pmin.int, Position, rank, rbind,\\\#\#\ \ \ \  Reduce, rep.int, rownames, sapply, setdiff, sort,\\\#\#\ \ \ \  table, tapply, union, unique, unlist\\\#\# \\\#\# Welcome to Bioconductor\\\#\# \\\#\#\ \ \ \  Vignettes contain introductory material; view\\\#\#\ \ \ \  with 'browseVignettes()'. To cite Bioconductor,\\\#\#\ \ \ \  see 'citation("{}Biobase"{})', and for packages\\\#\#\ \ \ \  'citation("{}pkgname"{})'.\\\#\# \\\#\# Loading required package: Category\\\#\# Loading required package: AnnotationDbi\\\#\# Loading required package: Matrix\\\#\# Loading required package: GO.db\\\#\# Loading required package: DBI\\\#\# \\\#\# Loading required package: graph\\\#\# \\\#\# Attaching package: 'GOstats'\\\#\# \\\#\# The following object is masked from 'package:AnnotationDbi':\\\#\# \\\#\#\ \ \ \  makeGOGraph}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(hgu95av2.db): there is no package called 'hgu95av2.db'}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Attaching package: 'MASS'\\\#\# \\\#\# The following object is masked from 'package:AnnotationDbi':\\\#\# \\\#\#\ \ \ \  select\\\#\# \\\#\# The following object is masked from 'package:genefilter':\\\#\# \\\#\#\ \ \ \  area}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(mclust): there is no package called 'mclust'}}\end{kframe}
+\end{knitrout}
+
+\section{Prerequisites}
+
+\begin{frame}
+  \frametitle{\texttt{R} and BioConductor}
+  \begin{itemize}
+  \item \texttt{R} is an advanced statistical programming language and
+    data analysis environment. From programming point of view, it
+    bears many similarities with \texttt{MATLAB}. 
+  \item \texttt{R} is free software.  You can obtain and install it
+    from \href{http://www.r-project.org/}.  If you run Linux, I
+    recommend you install it from your package management system.
+  \item BioConductor is a large collection of \texttt{R} libraries
+    designed for analyzing high-throughput genomic data.  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Installing BioConductor}
+  Install BioConductor from \texttt{R} is simple
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{source}\hlstd{(}\hlstr{"http://bioconductor.org/biocLite.R"}\hlstd{)}
+\hlkwd{biocLite}\hlstd{()}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Once BioConductor is installed, you can install specific package by the same \texttt{biocLite()} function
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{biocLite}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"ALL"}\hlstd{,} \hlstr{"genefilter"}\hlstd{,} \hlstr{"GOstats"}\hlstd{,} \hlstr{"samr"}\hlstd{,} \hlstr{"multtest"}\hlstd{,} \hlstr{"GEOquery"}\hlstd{))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+\end{frame}
+
+
+\section{Welcome to the world of *-omics data!}
+
+\begin{frame}
+  \frametitle{Microarrays}
+  \begin{itemize}
+  \item The most commonly used bioinformatics data are DNA/RNA
+    microarrays (Affymetrix GeneChip platform, Illumina Beads Array,
+    etc) and their variants.
+  \item Microarrays measures the expression levels (concentration of
+    RNA/DNA in the sample) for all genes through hybridization.
+  \item Many synthesized \alert{probes} are attached in the array to
+    hybridize with specific target RNA/DNA fragments.
+  \item Expression levels detected by these probes are then processed
+    into a $m\times n$ dimensional matrix for further analysis. Here
+    $m$ is the number of probesets (can be mapped to genes); $n$ is
+    the number of samples (\textit{a.k.a.} arrays/slides).
+  \item Typically $m$ is in the range of $20\sim 50$ thousands, and
+    $n$ is in the range of $10\sim 100$. This is a typical ``large
+    $p$, small $n$'' scenario in statistical analysis.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other *-omics data (I)}
+  \begin{itemize}
+  \item Though we focus on microarray data analysis in this talk, we
+    would like to point out that many other *-omics data exist.
+  \item PCR (Polymerase chain reaction) data. Low throughput
+    (cheaper); high sensitivity; often used \emph{after} microarray
+    analysis to \emph{confirm} differentiation of specific genes.
+  \item Protein binding microarray (\textit{a.k.a.} biochip,
+    proteinchip).  Records protein instead of DNA/RNA
+    expressions. Good for identifying protein-protein interactions;
+    transcription factor protein-activation; antibody measurements.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other *-omics data (II)}
+  \begin{itemize}
+  \item RNA-seq arrays. Uses the ``next-generation sequencing
+    technology''.
+  \item Provides data at the nucleotide sequence level.
+  \item Can be used as a substitute of microarray expression data.
+  \item Can also be used to detect single nucleotide variation (SNP),
+    \textit{de novo} reconstruction of transcriptome, etc.
+  \item \alert{Cons:} 5\% of high abundance transcripts
+    (``house-keeping'' genes) can exhaust 75\% of reads, many
+    important genes will be below detection threshold.
+  \item Many, many other types of data exist for specialized studies.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Microarray Data pre-processing}
+  \begin{itemize}
+  \item Raw scanner level data on Affymetrix platform are images with
+    ``\texttt{.CEL}'' suffixes.  \texttt{R/BioConductor} provides a
+    function \texttt{ReadAffy()} to read these CEL files into
+    \texttt{R}.
+  \item The default preprocessing method provided by
+    \texttt{R/BioConductor} is RMA (Robust Multichip Average) which includes
+    \begin{enumerate}
+    \item Background correction at the image level.
+    \item Quantile normalization, which calibrates all arrays to the
+      same scale (all quantiles must be the same).
+    \item Summarization. Multiple ($15-25$) probes are used to detect
+      one target so they need to be summarized to one number.
+    \item Variance stabilization transformation.  Most common VST:
+      log2 transformation\footnote{Average in the log-scale is
+        the \emph{geometric mean}; multiplicative noise becomes
+        additive in the log-scale, etc.}.
+    \end{enumerate}
+  \end{itemize}
+  
+\end{frame}
+
+\section{Now we have the data. Which genes are ``interesting''?}
+
+\begin{frame}[fragile]
+  \frametitle{Load the ALL data}
+  Let us load a sample data (\texttt{ALL}, Acute Lymphoblastic
+    Leukemia) first.
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{## biocLite("ALL")}
+\hlkwd{library}\hlstd{(ALL)}      \hlcom{#This is a data library}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(ALL): there is no package called 'ALL'}}\begin{alltt}
+\hlkwd{data}\hlstd{(}\hlstr{"ALL"}\hlstd{)}       \hlcom{#a 12,625 by 128 dim matrix }
+\end{alltt}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in data("{}ALL"{}): data set 'ALL' not found}}\begin{alltt}
+\hlkwd{print}\hlstd{(ALL)}        \hlcom{#print out some useful information}
+\end{alltt}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in print(ALL): error in evaluating the argument 'x' in selecting a method for function 'print': Error: object 'ALL' not found}}\end{kframe}
+\end{knitrout}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

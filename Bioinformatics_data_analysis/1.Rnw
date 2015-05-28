@@ -1,0 +1,870 @@
+\SweaveOpts{echo=TRUE, prefix.string=results/fig, cache=TRUE}
+
+%%%%%%%%%%%%%% Front matters
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%% Main text
+
+<<init, cache=FALSE, echo=FALSE, results=hide>>=
+## library(knitr)
+setCacheDir(".cache")
+set.seed(123)
+## library("foreach")
+## library("doMC")
+## registerDoMC()
+
+library(ALL)
+library(genefilter)
+library(multtest)
+library(GOstats)
+library(hgu95av2.db)
+library(MASS)
+library(xtable)
+library(mclust)
+@ 
+
+\section{Prerequisites}
+
+\begin{frame}
+  \frametitle{\texttt{R} and BioConductor}
+  \begin{itemize}
+  \item \texttt{R} is an advanced statistical programming language and
+    data analysis environment. From programming point of view, it
+    bears many similarities with \texttt{MATLAB}. 
+  \item \texttt{R} is free software.  You can obtain and install it
+    from \href{http://www.r-project.org/}.  If you run Linux, I
+    recommend you install it from your package management system.
+  \item BioConductor is a large collection of \texttt{R} libraries
+    designed for analyzing high-throughput genomic data.  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Installing BioConductor}
+  Install BioConductor from \texttt{R} is simple
+<<install-bioconductor, eval=FALSE>>=
+source("http://bioconductor.org/biocLite.R")
+biocLite()
+@     
+Once BioConductor is installed, you can install specific package by the same \texttt{biocLite()} function
+<<install-bioconductor-packages, eval=FALSE>>=
+biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
+@   
+\end{frame}
+
+
+\section{Welcome to the world of *-omics data!}
+
+\begin{frame}
+  \frametitle{Microarrays}
+  \begin{itemize}
+  \item The most commonly used bioinformatics data are DNA/RNA
+    microarrays (Affymetrix GeneChip platform, Illumina Beads Array,
+    etc) and their variants.
+  \item Microarrays measures the expression levels (concentration of
+    RNA/DNA in the sample) for all genes through hybridization.
+  \item Many synthesized \alert{probes} are attached in the array to
+    hybridize with specific target RNA/DNA fragments.
+  \item Expression levels detected by these probes are then processed
+    into a $m\times n$ dimensional matrix for further analysis. Here
+    $m$ is the number of probesets (can be mapped to genes); $n$ is
+    the number of samples (\textit{a.k.a.} arrays/slides).
+  \item Typically $m$ is in the range of $20\sim 50$ thousands, and
+    $n$ is in the range of $10\sim 100$. This is a typical ``large
+    $p$, small $n$'' scenario in statistical analysis.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other *-omics data (I)}
+  \begin{itemize}
+  \item Though we focus on microarray data analysis in this talk, we
+    would like to point out that many other *-omics data exist.
+  \item PCR (Polymerase chain reaction) data. Low throughput
+    (cheaper); high sensitivity; often used \emph{after} microarray
+    analysis to \emph{confirm} differentiation of specific genes.
+  \item Protein binding microarray (\textit{a.k.a.} biochip,
+    proteinchip).  Records protein instead of DNA/RNA
+    expressions. Good for identifying protein-protein interactions;
+    transcription factor protein-activation; antibody measurements.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other *-omics data (II)}
+  \begin{itemize}
+  \item RNA-seq arrays. Uses the ``next-generation sequencing
+    technology''.
+  \item Provides data at the nucleotide sequence level.
+  \item Can be used as a substitute of microarray expression data.
+  \item Can also be used to detect single nucleotide variation (SNP),
+    \textit{de novo} reconstruction of transcriptome, etc.
+  \item \alert{Cons:} 5\% of high abundance transcripts
+    (``house-keeping'' genes) can exhaust 75\% of reads, many
+    important genes will be below detection threshold.
+  \item Many, many other types of data exist for specialized studies.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Microarray Data pre-processing}
+  \begin{itemize}
+  \item Raw scanner level data on Affymetrix platform are images with
+    ``\texttt{.CEL}'' suffixes.  \texttt{R/BioConductor} provides a
+    function \texttt{ReadAffy()} to read these CEL files into
+    \texttt{R}.
+  \item The default preprocessing method provided by
+    \texttt{R/BioConductor} is RMA (Robust Multichip Average) which includes
+    \begin{enumerate}
+    \item Background correction at the image level.
+    \item Quantile normalization, which calibrates all arrays to the
+      same scale (all quantiles must be the same).
+    \item Summarization. Multiple ($15-25$) probes are used to detect
+      one target so they need to be summarized to one number.
+    \item Variance stabilization transformation.  Most common VST:
+      log2 transformation\footnote{Average in the log-scale is
+        the \emph{geometric mean}; multiplicative noise becomes
+        additive in the log-scale, etc.}.
+    \end{enumerate}
+  \end{itemize}
+  
+\end{frame}
+
+\section{Now we have the data. Which genes are ``interesting''?}
+
+\begin{frame}[fragile]
+  \frametitle{Load the ALL data}
+  Let us load a sample data (\texttt{ALL}, Acute Lymphoblastic
+    Leukemia) first.
+<<load-ALL, results=hide>>=
+## biocLite("ALL")
+library(ALL)      #This is a data library
+data("ALL")       #a 12,625 by 128 dim matrix 
+print(ALL)        #print out some useful information
+@     
+   Object: \texttt{ExpressionSet}; features (genes/probesets): \Sexpr{nrow(ALL)}; sample size: \Sexpr{ncol(ALL)}.
+\end{frame}
+
+\begin{frame}[fragile,shrink]
+  \frametitle{Select a subset of arrays}
+  Assume that we want to select only sample from B-cell lymphomas
+  harboring the BCR/ABL translocation and from lymphomas with no
+  observed cytogenetic abnormalities (NEG).
+<<subsetting-ALL>>=
+## BT is the variable of ALL which distinguish B cells
+## from T cells. 
+## Show in another window: as.character(ALL[["BT"]])
+bcell <- grep("^B", as.character(ALL[["BT"]]))
+
+## select molecular types of BCR/ABL and NEG
+molbiol <- as.character(ALL[["mol.biol"]])
+moltype <- which(molbiol %in% c("BCR/ABL", "NEG"))
+
+data1 <- ALL[, intersect(bcell, moltype)]
+## drop unwanted levels of mol.biol
+data1[["mol.biol"]] <- factor(data1[["mol.biol"]])
+@ 
+ The result, \texttt{data1}, has \Sexpr{ncol(data1)} arrays (\Sexpr{sum(data1[["mol.biol"]]=="NEG")} NEG, \Sexpr{sum(data1[["mol.biol"]]=="BCR/ABL")} BCR/ABL).
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Nonspecific filtering}
+  \begin{itemize}
+  \item Filter out genes \alert{before} statistical analysis.  The
+    filtering criteria often include basic quality control
+    characteristics such as minimum expression level and standard
+    deviation (or interquartile range).
+<<nonspecific-filter>>=
+library(genefilter)
+## filter based on expression levels
+filter1 <- rowMax(exprs(data1))>=4.0
+
+## filter based on standard deviation
+filter2 <- rowSds(exprs(data1))>=0.25
+data2 <- data1[filter1 & filter2, ]
+@     
+  \item The result, \texttt{data2}, has 79 arrays and \Sexpr{nrow(data2)} genes.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Hypothesis testing} In principle, any parametric or
+  nonparametric statistic designed for single hypothesis testing may
+  be useful in microarray.  In practice, the following test statistics
+  are wided used in microarray data analysis:
+  \begin{itemize}
+  \item Two sample student $t$-statistic
+  \item Wilcoxon rank sum statistic
+  \item Kolmogorov-Smirnov statistic
+  \item Cram\'er-von Mises statistic
+  \item $N$-statistic
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two sample student $t$-statistic} 
+  \begin{itemize}
+  \item Two sample student $t$-statistic is a parametric statistic. In
+    order to compute the $p$-value associated with a $t$-statistic
+    from the standard $t$-distribution, we need to assume the
+    underlying distribution of expression levels are normally
+    distributed.
+  \item Remark: You can still compute $t$-statistic when data are not
+    normally distributed.  But you can not obtain a valid $p$-value by
+    looking up the \alert{standard $t$-distribution}.
+  \item In fact, a permutation version of $t$-test is valid even for
+    non-normal data.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Two sample student $t$-statistic} 
+  \begin{equation}
+    \label{eq:t}
+    t_{i} = \frac{\bar{\mathbf{x}}^{(A)}_{i}-\bar{\mathbf{x}}^{(B)}_{i}} {\sqrt{s^2_{i}(\frac{1}{n_{A}}+\frac{1}{n_{B}})}}.
+  \end{equation}
+  where $\bar{\mathbf{x}}^{(A)}_{i}$, $\bar{\mathbf{x}}^{(B)}_{i}$
+  represents the mean expressions of the $i$th gene in two phenotypic
+  groups ($A$ and $B$); $n_{A}$, $n_{B}$ are the number of arrays of
+  each phenotype; $s^{2}_{i}$ is an estimated variance pooled from
+  both groups.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fold difference, and why it is bad}
+  Fold difference\footnote{Fold difference is similar but not
+    identical to fold change due to log2 transformation.} is simply
+  the difference between $\bar{x}$ and $\bar{y}$.
+  \begin{itemize}
+  \item[Data 1] $\mathbf{x}^{(A)} = \{1,2,3\}$, $\mathbf{x}^{(B)} = \{4,5,6\}$,
+  \item[Data 2] $\mathbf{x}^{(A)} = \{10,20,30\}$, $\mathbf{x}^{(B)} = \{40,50,60\}$.
+  \end{itemize}
+  Fold differences: 3 for Data 1, 30 for Data 2.  $t$-statistics:
+  -3.6742 for both data sets.  $p$-values: 0.02131 for both data sets.
+  \cite{Shi2006MicroArrayQualityControl,Klebanov2007Statisticalmethodsand}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SAM (significant analysis of Microarrays)} A compromise:
+  the SAM (significant analysis of Microarrays) approach
+  \cite{Tusher2001}.
+    \begin{equation}
+      \label{eq:sam}
+      t_{i,\text{SAM}} = \frac{\bar{\mathbf{x}}^{(A)}_{i}-\bar{\mathbf{x}}^{(B)}_{i}} {\sqrt{(s^2_i + s^{2}_{0})(\frac{1}{n_{A}}+\frac{1}{n_{B}})}}.
+    \end{equation}
+    where $s^{2}_{0}$ is estimated from the other genes and can be
+    considered as a) an estimate of the variance of background noise;
+    b) a way to stabilize the signal-to-noise ratio.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wilcoxon rank-sum statistic}
+  \begin{itemize}
+  \item The Wilcoxon rank-sum statistic is a nonparametric alternative
+    to $t$-statistic:
+    \begin{equation}
+      \label{eq:wilcoxon}
+      W_{i} = \sum^{n_1}_{j=1} r(x^{(A)}_{ij})
+    \end{equation}
+  \item Where $r(x^{(A)}_{ij})$ is the rank of $x^{(A)}_{ij}$ in the
+    combined sample.
+  \item The key point: only ranking information are needed, so
+    \begin{enumerate}
+    \item $p$-value computed from this statistic is valid even when
+      the distribution of the expression levels are not normal.
+      \cite{Gibbons1992NonparametricStatisticalInference}
+    \item outliers have less effect to inference.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wilcoxon rank-sum statistic} 
+  \begin{itemize}
+  \item For both Data 1 and Data 2, $W=6$, $p=0.1$. Notice that, this
+    $p$-value is greater than the one computed from the $t$-statistic
+    (0.02131).
+  \item Generally speaking, nonparametric tests are less powerful than
+    their parametric counterparts, because we assume that we have some
+    \textit{a priori} information about the underlying distribution in
+    the parametric case.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other advanced statistics} 
+  \begin{itemize}
+  \item Kolmogorov-Smirnov statistic: a distribution free statistic
+    which can be thought of as a \alert{distance} between two
+    empirical distribution functions. Its parametric counterpart is
+    the $\chi^2$-statistic.
+  \item Cram\'er-von Mises statistic: a distribution free statistic
+    which was first designed to test the normality of a given
+    empirical distribution, it can also be used as a \alert{distance}
+    between two empirical distribution functions.
+  \item The granularity of this statistic (which causes inaccuracy of
+    the corresponding $p$-values) is smaller than that for the
+    Kolmogorov-Smirnov statistic, but this statistic and its associate
+    $p$-value is much harder to compute.
+    \cite{Xiao2007C++ProgramCramer-von}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Permutation $N$-test} 
+  \begin{itemize}
+  \item Another nonparametric test based on the $N$-distance between
+    two empirical distribution functions.
+  \item it is a family of distribution functions depending on the
+    \alert{kernel} being used. We can use kernels that are more
+    sensitive to a certain kind of departure to get better power.
+  \item For instance, by using $L^1$ kernel, this statistic is more
+    sensitive to a departure in shifting.
+    \cite{Klebanov2005permutationtestmotivated}.
+  \item This is also used in differential association studies
+    \cite{qiu-hu2010,rui2009b,Needham2011}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,fragile]
+Hypothesis testing (using t-statistics)
+<<hypothesis-testing, results=verbatim>>=
+tt <- rowttests(data2, "mol.biol")
+@ 
+Report top 5 differentially expressed probe sets and their gene symbols.
+<<top5>>=
+tt.sorted <- tt[order(tt[["p.value"]]), ]
+top5 <- rownames(tt.sorted)[1:5]
+library("hgu95av2.db")
+top5.table <- cbind(links(hgu95av2SYMBOL[top5]),tt.sorted[1:5,])
+print(xtable(top5.table), file="results/table-top5.tex")
+@ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Top differentially expressed genes}
+  \input{results/table-top5}
+\end{frame}
+
+<<heatmap,results=hide,echo=FALSE>>=
+## re-organize the arrays for better visual effect
+molsorted <- c(which(as.character(data2[["mol.biol"]])=="BCR/ABL"), which(as.character(data2[["mol.biol"]])=="NEG"))
+top50set <- data2[order(tt[["p.value"]])[1:50], molsorted]
+
+color.map <- function(mol.biol) { if (mol.biol=="NEG") "red" else "blue" }
+patientcolors <- unlist(lapply(top50set[["mol.biol"]], color.map))
+pdf("results/heatmap.pdf")
+heatmap(exprs(top50set), col=topo.colors(50), ColSideColors=patientcolors, Colv=NA)
+dev.off()
+@ 
+  
+
+\begin{frame}[plain]
+  \frametitle{A heatmap of the top 50 DEGs}
+  \vspace{-.1in}
+    \includegraphics[width=3.8in]{results/heatmap}
+\end{frame}
+
+\section{How to control false discoveries for 20,000 comparisons}
+
+\begin{frame}
+  \frametitle{Type I, II error, testing power}
+  \begin{tabular}{|l|c|c|}
+    & Accept $H_0$ & Reject $H_0$ \\
+    \hline
+    $H_0$  & True Negative & False Positive, type I error) \\
+    \hline
+    $H_1$  & False Negative, type II error & True Positive) \\
+  \end{tabular}
+\end{frame}
+\begin{frame}
+  \frametitle{Per-Comparison Error Rate (PCER)} Per-comparison error
+  rate, or PCER is the probability of making the type I error in a
+  single test. \\
+  Under most common scenario, this is precisely determined by the
+  threshold of $p$-value to reject $H_0$ (the significance level of the
+  test).
+\end{frame}
+
+\subsection{Family-wise Error Rate}
+\begin{frame}
+  \frametitle{Definition of FWER} From now on we assume that we have
+  $m$ hypotheses (whether a given gene is diff. exp. or not) to be
+  tested simultaneously. By definition, FWER is the probability of
+  producing one or more false positives
+  \begin{equation}
+    \label{eq:fwer}
+    FWER = Pr(FP \geq 1)
+  \end{equation}
+\end{frame}
+\begin{frame}
+  \frametitle{Why controlling FWER is important} 
+  \begin{itemize}
+  \item controlling FWER at a significance level $\alpha$ gives us
+    $1-\alpha$ confidence to say
+    that there is no mistake in the outcome.
+  \item Suppose you have done $t$-test for 20,000 genes. At
+    significance level $\alpha = 0.05$, how many genes will be
+    identified as DEG \alert{by chance}?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bonferroni adjustment} Bonferroni adjusted $p$-value:
+  $p^{bon}_i = \min (m \times p_i, 1)$ For example, suppose raw
+  $p$-value is $0.0428$ and $m=20$, then the Bonferroni adjusted
+  $p$-value is $0.856$. A statistical test based on the Bonferroni
+  adjusted $p$-values rather than the unadjusted $p$-values is called
+  the Bonferroni procedure.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Relationship to PFER} A related quantity is the
+  per-family error rate (PFER), the expected number of false
+  positives.
+  \begin{equation}
+    \label{eq:pfer}
+    PFER = E(FP)
+  \end{equation}
+  PFER is always greater or equal to FWER. So any procedure (including
+  Bonferroni) which controls PFER controls FWER.  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Sidak, Holm, etc} Some other less conservative FWER controlling
+  procedures exist. These procedures usually adjust $p$-values
+  stepwisely, i.e., they order the $p$-values first, then adjust $p_i$
+  one by one according to the rank of $p_i$. They may further divided
+  into step-down procedures and step-up procedures.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Correlation and FWER} 
+  \begin{itemize}
+  \item If we know the relationship of the hypotheses, we may be able
+    to utilize this information to get a better procedure (that is,
+    more powerful procedure which controls the same nominal FWER
+    level).
+  \item Westfall and Young procedure uses permutation to generate the
+    null distribution. Thus keeps the correlation structure of
+    hypotheses. It is time consuming but more powerful than
+    Bonferroni.  See
+    \cite{Westfall1993Resampling-BasedMultipleTesting}.
+  \end{itemize}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Trivial case, Ind. vs. 1.0 correlated} Let us assume
+%   $m=20$. If all hypotheses are independent, then on average $1.0$
+%   false discovery is expected if the significance level is $0.05$ and
+%   we do not apply any MTA. \\
+%   What if all hypotheses are correlated with coefficient $1.0$?\\
+%   It doen't change the expected number of false discovery, but it does
+%   change the probability of having one or more false discovery.
+% \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Bonferroni}
+  Bonferroni is simple but conservative.
+<<bonferroni>>=
+pvals <- tt[["p.value"]]
+pvals.bonf <- p.adjust(pvals, "bonferroni")
+sum(pvals.bonf<0.05)
+@ 
+It finds \Sexpr{sum(pvals.bonf<0.05)} DEGs.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Westfall and Young}
+  Westfall and Young permutation test is a more powerful alternative
+<<westfall, results=hide>>=
+library(multtest)
+cl <- data1[["mol.biol"]]=="NEG" #class labels
+rr <- mt.maxT(exprs(data2), cl, B=1000)
+
+## to get back to the original ordering
+ord <- order(rr$index) 
+
+## W-Y adjusted p-values
+pvals.wy <- rr$adjp[ord]
+sum(pvals.wy<0.05)
+@
+It finds \Sexpr{sum(pvals.wy<0.05)} DEGs.
+\end{frame}
+
+
+\subsection{False Discovery Rate}
+\begin{frame}
+  \frametitle{Definition of the False Discovery Rate (FDR)} the False
+  Discovery Rate (FDR) is defined as (roughly) the expected value of
+  the ratio of the false positives among all positives.
+  \begin{equation}
+    \label{eq:fdr}
+    FDR = E(Q)
+  \end{equation}
+  Where $Q=\frac{FP}{FP+TP}$ when there is at least one positive, or
+  zero otherwise (to avoid $0/0$).
+\end{frame}
+\begin{frame}
+  \frametitle{Example} Suppose we have $m$ hypotheses to be
+  tested. The associated $p$-value for gene $i$ is denoted as
+  $p_i$. Then a test designed to control FDR at level $0.05$
+  guarantees that out of $20$ discoveries, only one or less is a false
+  discovery on average.
+\end{frame}
+\begin{frame}
+  \frametitle{FDR v. FWER/FCER} Like PFER, FDR is an \alert{expected
+    number}. While both FWER and FCER based procedures controls
+  certain \alert{probability} and fit well with the traditional
+  significance testing framework, FDR controlling procedures controls
+  an expected value that has a very different statistical meaning.
+\end{frame}
+\begin{frame}
+  \frametitle{Instability of FDR} FDR is the expectation of a
+  ratio. When we expect the denominator (total discoveries) to be
+  small, small variation in the numerator/denominator can result in
+  huge variation of the quotient.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{False discovery rate (example)}
+Using the Benjamini-Hochberg procedure to control FDR.
+<<fdr>>=
+pvals.fdr <- p.adjust(pvals, "BH")
+sum(pvals.fdr<0.05)
+@ 
+It finds \Sexpr{sum(pvals.fdr<0.05)} DEGs.
+\end{frame}
+
+\section{Machine learning techniques}
+
+\begin{frame}
+  \frametitle{Discriminant analysis (supervised machine learning)}
+  \begin{itemize}
+  \item Select a manageable set of features.  Usually done by
+    statistical significant test.
+  \item Standardize these features to the same scale.
+  \item Split the data into two sets, one (larger) for training and
+    one (smaller) for testing.
+  \item Train a discriminant function on the training set, and then
+    apply the formula to the testing set.
+  \item Repeat for many times.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear discriminant analysis}
+  \begin{itemize}
+  \item The simplest approach is linear discriminant analysis. 
+  \item Underline assumptions:
+    \begin{enumerate}
+    \item the expressions of DEGs follow two multivariate normal
+      distributions with the in different phenotypic groups.
+    \item covariance structures are the same in these phenotypic groups.
+    \item mean expressions are different
+    \end{enumerate}
+    \begin{equation}
+      \label{eq:lda-model}
+      \mathbf{x}^{(A)} \sim MVN\left(\bm{\mu}^{(A)},\, \Sigma\right), \quad \mathbf{x}^{(B)} \sim MVN\left(\bm{\mu}^{(B)},\, \Sigma\right).
+    \end{equation}
+  \item Under these assumptions, the best data driven method to
+    separate these two distributions is a hyperplane (a linear
+    subspace).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,fragile]
+  \frametitle{Linear discriminant analysis example}
+<<lda, results=hide>>=
+## The correlations between the 1st, 2nd, and 3rd top DEGs 
+## are too high. So I use the 1st and 4th genes for 
+## better visualization
+
+top2 <- t(exprs(top50set)[c(1,4),])
+rr.lda <- lda(top2, top50set[["mol.biol"]])
+@ 
+\end{frame}
+
+
+<<ldaplot, results=hide, echo=FALSE>>=
+ss <- rr.lda$scaling # discriminant function coefs
+cc <- mean(ss[1] * top2[,1] + ss[2] * top2[,2]) #cutoff point
+
+pdf("results/lda.pdf")
+par(pty="s")
+plot(top2, col=patientcolors,  asp=1)
+legend("topleft", legend=c("BCR/ABL", "NEG"), pch=c(1,1), col=c("blue", "red"))
+abline(cc/ss[2], -ss[1]/ss[2], col=3)
+dev.off()
+
+rr.lda.cv <- lda(top2, top50set[["mol.biol"]], CV=TRUE)
+lda.tab <- xtable(table(top50set[["mol.biol"]], rr.lda.cv$class), caption="Results of linear discriminant analysis. Cross-validation is used for evaluate true/false predictions.", label="tab:lda")
+print(lda.tab, file="results/table-lda.tex")
+@ 
+
+\begin{frame}[plain]
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+    \input{results/table-lda}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=2.5in]{results/lda}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Logistic Regression}
+  \begin{itemize}
+  \item Alternatively we can use multiple logistic regression
+    analysis.
+  \item Logistic regression is an example of \emph{generalized linear
+      regression}.
+  \item For more information you can check out the \texttt{glm()}
+    function in \texttt{R}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Nonlinear discriminant analysis}
+  \begin{itemize}
+  \item For \alert{nonlinear} discriminant analysis, support vector
+    machine (SVN) and $K$-nearest neighbor methods are the most
+    popular choices.
+  \item They are implemented in packages \texttt{svn} and \texttt{MLinterfaces}.
+  \item Another alternative is random forest, but it has a tendency to
+    \textit{overfit} a continuous model.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Principal component analysis (unsupervised learning)}
+  \begin{itemize}
+  \item Genes are known to form functionally related sets, which means
+    they could be highly correlated.
+  \item PCA uses an orthogonal transformation to convert correlated
+    gene expressions into a set of \alert{uncorrelated} variables
+    called principal components.
+  \item Since PCs are uncorrelated, we can divide the total variance
+    into variance components explained by each PC.
+  \item Empirical evidence shows that just a few PCs can explain 95\%
+    of total variance.
+  \item Geometrically speaking, this means the observations fit a low
+    dimensional hyperplane very well.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,fragile]
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+To compute the principal components are easy
+<<pca>>=
+rr.pca <- prcomp(top2)
+@ 
+The explained standard deviation (shown as the length of vectors):  \Sexpr{round(rr.pca[["sdev"]][1], 3)} (first PC); \Sexpr{round(rr.pca[["sdev"]][2], 3)} (second PC).
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+    \includegraphics[width=2.5in]{results/pca}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+<<pca-plot, results=hide, echo=FALSE>>=
+pdf("results/pca.pdf")
+par(pty="s")
+plot(top2, asp=1)
+arrows(rr.pca[["center"]][1], rr.pca[["center"]][2], 
+       rr.pca[["center"]][1]+ rr.pca[["sdev"]][1]*rr.pca[["rotation"]][1,1],
+       rr.pca[["center"]][2]+ rr.pca[["sdev"]][1]*rr.pca[["rotation"]][2,1])
+arrows(rr.pca[["center"]][1], rr.pca[["center"]][2], 
+       rr.pca[["center"]][1]+ rr.pca[["sdev"]][2]*rr.pca[["rotation"]][1,2],
+       rr.pca[["center"]][2]+ rr.pca[["sdev"]][2]*rr.pca[["rotation"]][2,2])
+dev.off()
+@ 
+
+\begin{frame}
+  \frametitle{Cluster analysis (unsupervised learning)}
+  \begin{itemize}
+  \item Feature selection. You can use the top $M$ genes based on
+    $p$-value, or the first few principal components computed from all
+    significant genes.  The bottom line: no more than 10 features
+    otherwise you run the risk of overwhelming the cluster algorithms.
+  \item Feature standardization.
+  \item Distance/similarity measure. $K$-means uses the Euclidean
+    distance. $SK$-means uses spherical distance.
+  \item Determine how many clusters.  AIC/BIC
+  \item Run the actual cluster analysis. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[plain,fragile]
+<<kmeans>>=
+## compute PCs
+pcs <- prcomp(t(exprs(top50set)))
+
+## take only the first 2 PCs as features
+pc2 <- pcs[["rotation"]][, 1:2]
+
+## feature standardization
+pc2b <- scale(pc2)
+
+## $K$-means clustering
+rr.kmeans <- kmeans(pc2b, 2)
+@ 
+
+<<mclust>>=
+## Mclust() is a model based clustering method.
+rr.mclust <- Mclust(pc2b)
+@ 
+\end{frame}
+
+<<kmeans-plot, results=hide, echo=FALSE>>=
+pdf("results/kmeans.pdf")
+par(pty="s")
+plot(pc2b, asp=1, col=rr.kmeans[["cluster"]])
+dev.off()
+
+pdf("results/mclust.pdf")
+par(pty="s")
+plot(pc2b, asp=1, col=rr.mclust[["classification"]])
+dev.off()
+@ 
+
+\begin{frame}[plain,fragile]
+  \begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=2.5in]{results/kmeans}
+      \caption{$K$-means clustering}
+      \label{fig:kmeans}
+    \end{figure}
+  \end{column}
+
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=2.5in]{results/mclust}
+      \caption{Mclust clustering}
+      \label{fig:mclust}
+    \end{figure}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\section{Beyond analyzing probe sets}
+
+\begin{frame}
+  \frametitle{Gene annotation (I)}
+  Gene annotation is tricky because
+  \begin{itemize}
+  \item Once significant probe sets are identified, we need to map
+    them to the corresponding genes and obtain useful information
+    about these genes.
+  \item This mapping is nontrivial because
+    \begin{enumerate}
+    \item Multiple probe sets per gene.
+    \item Organism level information are grouped in different (and
+      numerous) libraries.
+    \item Platform dependency.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gene annotation (II)}
+  \begin{itemize}
+  \item Probe set IDs (\texttt{sig.probes <- rownames(top50set)} or
+    \texttt{sig.probes <- featureNames(top50set)}).
+  \item Entrez IDs: \texttt{links(hgu95av2ENTREZID[sig.probes])}.
+  \item Unigene IDs: \texttt{links(hgu95av2UNIGENE[sig.probes])}.
+  \item Gene Symbols: \texttt{links(hgu95av2SYMBOL[sig.probes])}.
+  \item GO IDs: \texttt{links(hgu95av2GO[sig.probes])}.
+  \item KEGG pathway IDs: \texttt{links(hgu95av2PATH[sig.probes])}.
+  \item Chromosome start and stop locs: \textbf{CHRLOC} and
+    \textbf{CHRLOCEND}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gene Set Enrichment Anaysis (GSEA)}
+  \begin{itemize}
+  \item Genes are grouped into sets, such as metabolic pathways.
+  \item The rationale of the hypergeometric test.
+  \item The implementation. See the next slide.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[plain,fragile]
+<<gsea>>=
+## sig.probes are the significant probe sets
+library(GOstats)
+sig.probes <- rownames(tt)[pvals.fdr<0.1]
+id.table <- links(hgu95av2ENTREZID[sig.probes])
+sig.ids <- unique(id.table[,"gene_id"])
+
+## entrezUniverse is the set of all (DEGs and NDEGs)
+## probe sets.
+entrezUniverse <- unlist(mget(rownames(tt), 
+                              hgu95av2ENTREZID))
+
+params <- new("GOHyperGParams", geneIds=sig.ids,
+              universeGeneIds=entrezUniverse,
+              annotation="hgu95av2.db",
+              ontology="BP",
+              pvalueCutoff=0.001,
+              conditional=FALSE,
+              testDirection="over")
+@ 
+\end{frame}
+
+
+\begin{frame}[plain,fragile]
+<<gsea2>>=
+## Run the hyper-geometric test for significance.
+rr.gsea <- hyperGTest(params)
+
+## Run a reasonable multiple testing procedure
+pp.gsea <- pvalues(rr.gsea)
+pp.gsea.bh <- p.adjust(pp.gsea, "BH")
+
+## Output a table as report.
+nn <- sum(pp.gsea.bh<0.05)
+tab.gsea <- summary(rr.gsea,pvalue=pp.gsea[nn+1])
+write.csv(tab.gsea, file="results/table-gsea.csv")
+@ 
+\Sexpr{nn} pathways are significant. Show the \texttt{table-gsea.csv} file.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Other advanced techniques}
+  \begin{itemize}
+  \item Network reconstruction. Bayesian network; boolean network.
+  \item The use of ODE in network analysis for time-course data.
+  \item Differential association analysis.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center} \bf \Large Thank You!
+  \end{center}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Bibliography}
+  \bibliographystyle{amsplain}
+  \bibliography{xing}
+\end{frame}
+
+
+
