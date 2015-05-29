@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Descriptive Statistics}{9}{0}{2}
+\beamer@sectionintoc {3}{Probability distributions}{21}{0}{3}
+\beamer@sectionintoc {4}{Point Estimation}{25}{0}{4}
+\beamer@sectionintoc {5}{Hypothesis Testing}{29}{0}{5}
+\beamer@sectionintoc {6}{Linear Regression Analysis}{40}{0}{6}

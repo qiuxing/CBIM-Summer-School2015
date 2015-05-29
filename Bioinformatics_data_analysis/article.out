@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Prerequisites}{}% 1
+\BOOKMARK [1][-]{section.2}{Welcome to the world of *-omics data!}{}% 2
+\BOOKMARK [1][-]{section.3}{Now we have the data. Which genes are ``interesting''?}{}% 3
+\BOOKMARK [1][-]{section.4}{How to control false discoveries for 20,000 comparisons}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Family-wise Error Rate}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{False Discovery Rate}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Machine learning techniques}{}% 7
+\BOOKMARK [1][-]{section.6}{Beyond analyzing probe sets}{}% 8

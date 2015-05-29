@@ -1,0 +1,2312 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.2.19)  29 MAY 2015 15:31
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**presentation.tex
+(./presentation.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 2 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasercs.sty
+Package: beamerbasercs 2013/12/25 (rcs-revision 31cc758a62ae)
+)
+Document Class: beamer 2013/12/02 3.33 A class for typesetting presentations (r
+cs-revision 332bfd3ce558)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+Package: beamerbasemodes 2013/09/03 (rcs-revision 768f2d98ca64)
+\beamer@tempbox=\box26
+\beamer@tempcount=\count79
+\c@beamerpauses=\count80
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+Package: beamerbasedecode 2010/05/01 (rcs-revision efa082c6111d)
+\beamer@slideinframe=\count81
+\beamer@minimum=\count82
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count83
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+\beamer@lastskip=\skip41
+\beamer@areabox=\box28
+\beamer@animcurrent=\box29
+\beamer@animshowbox=\box30
+\beamer@sectionbox=\box31
+\beamer@logobox=\box32
+\beamer@linebox=\box33
+\beamer@sectioncount=\count84
+\beamer@subsubsectionmax=\count85
+\beamer@subsectionmax=\count86
+\beamer@sectionmax=\count87
+\beamer@totalheads=\count88
+\beamer@headcounter=\count89
+\beamer@partstartpage=\count90
+\beamer@sectionstartpage=\count91
+\beamer@subsectionstartpage=\count92
+\beamer@animationtempa=\count93
+\beamer@animationtempb=\count94
+\beamer@xpos=\count95
+\beamer@ypos=\count96
+\beamer@showpartnumber=\count97
+\beamer@currentsubsection=\count98
+\beamer@coveringdepth=\count99
+\beamer@sectionadjust=\count100
+\beamer@tocsectionnumber=\count101
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+Package: beamerbaseoptions 2013/03/10 (rcs-revision 47431932db0d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+\beamer@paperwidth=\skip42
+\beamer@paperheight=\skip43
+
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count105
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box34
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks19
+))
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count106
+\c@pgf@countb=\count107
+\c@pgf@countc=\count108
+\c@pgf@countd=\count109
+\t@pgf@toka=\toks20
+\t@pgf@tokb=\toks21
+\t@pgf@tokc=\toks22
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count110
+\pgfsyssoftpath@bigbuffer@items=\count111
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen139
+\pgfmath@count=\count112
+\pgfmath@box=\box35
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count113
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+\pgfpic=\box36
+\pgf@hbox=\box37
+\pgf@layerbox@main=\box38
+\pgf@picture@serial@count=\count114
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen158
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen162
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count115
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box39
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+))) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count116
+\XC@countmixins=\count117
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count120
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4319.
+Package hyperref Info: Option `implicit' set `false' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count121
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen165
+\Fld@menulength=\count122
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count123
+
+
+Package hyperref Message: Stopped early.
+
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count124
+\c@bookmark@seq@number=\count125
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+Package: beamerbaserequires 2010/05/01  (rcs-revision efa082c6111d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty
+Package: beamerbasecompatibility 2012/05/01  (rcs-revision 67c48b3b652d)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+Package: beamerbasefont 2013/10/18  (rcs-revision 72f39e01808a)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+
+(/usr/share/texlive/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+Package: beamerbasetranslator 2010/06/11  (rcs-revision 85fd1cc7fc42)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/translator-language-
+mappings.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+Package: beamerbasemisc 2013/09/03  (rcs-revision a55719c41d85)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+Package: beamerbasetwoscreens 2010/05/01  (rcs-revision efa082c6111d)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+Package: beamerbaseoverlay 2013/12/25  (rcs-revision f6bd5e3805da)
+\beamer@argscount=\count126
+\beamer@lastskipcover=\skip44
+\beamer@trivlistdepth=\count127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+Package: beamerbasetitle 2010/09/21  (rcs-revision f0446ed0b6ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+Package: beamerbasesection 2013/06/07  (rcs-revision 60b9fe0f342f)
+\c@lecture=\count128
+\c@part=\count129
+\c@section=\count130
+\c@subsection=\count131
+\c@subsubsection=\count132
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+Package: beamerbaseframe 2013/10/02  (rcs-revision cdc8e9a3aaac)
+\beamer@framebox=\box40
+\beamer@frametitlebox=\box41
+\beamer@zoombox=\box42
+\beamer@zoomcount=\count133
+\beamer@zoomframecount=\count134
+\beamer@frametextheight=\dimen168
+\c@subsectionslide=\count135
+\beamer@frametopskip=\skip45
+\beamer@framebottomskip=\skip46
+\beamer@frametopskipautobreak=\skip47
+\beamer@framebottomskipautobreak=\skip48
+\beamer@envbody=\toks27
+\framewidth=\dimen169
+\c@framenumber=\count136
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+Package: beamerbaseverbatim 2012/08/30  (rcs-revision dfdb135076b3)
+\beamer@verbatimfileout=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+Package: beamerbaseframesize 2011/09/12  (rcs-revision 70f9d8411e54)
+\beamer@splitbox=\box43
+\beamer@autobreakcount=\count137
+\beamer@autobreaklastheight=\dimen170
+\beamer@frametitletoks=\toks28
+\beamer@framesubtitletoks=\toks29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+Package: beamerbaseframecomponents 2013/10/18  (rcs-revision 5cf6c5555a45)
+\beamer@footins=\box44
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+Package: beamerbasecolor 2010/06/06  (rcs-revision d1a9b48be06d)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+Package: beamerbasenotes 2012/12/19  (rcs-revision 1686da3db3c9)
+\beamer@frameboxcopy=\box45
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+Package: beamerbasetoc 2013/05/23  (rcs-revision 0fdf5bc43be8)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+Package: beamerbasetemplates 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@sbttoks=\toks30
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+Package: beamerbaseauxtemplates 2013/09/04  (rcs-revision 4ac715c499d0)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
+\bmb@box=\box46
+\bmb@colorbox=\box47
+\bmb@boxshadow=\box48
+\bmb@boxshadowball=\box49
+\bmb@boxshadowballlarge=\box50
+\bmb@temp=\dimen171
+\bmb@dima=\dimen172
+\bmb@dimb=\dimen173
+\bmb@prevheight=\dimen174
+)
+\beamer@blockheadheight=\dimen175
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
+Package: beamerbaselocalstructure 2013/09/04  (rcs-revision 4ac715c499d0)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks31
+)
+\c@figure=\count138
+\c@table=\count139
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+Package: beamerbasenavigation 2013/10/05  (rcs-revision 62be157fe783)
+\beamer@section@min@dim=\dimen176
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+Package: beamerbasetheorems 2010/06/06  (rcs-revision 7e7cc5e53e9d)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks32
+\ex@=\dimen177
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen178
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count140
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count141
+\leftroot@=\count142
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count143
+\DOTSCASE@=\count144
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count145
+\c@MaxMatrixCols=\count146
+\dotsspace@=\muskip11
+\c@parentequation=\count147
+\dspbrk@lvl=\count148
+\tag@help=\toks33
+\row@=\count149
+\column@=\count150
+\maxfields@=\count151
+\andhelp@=\toks34
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+\@envbody=\toks35
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks36
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks37
+\thm@bodyfont=\toks38
+\thm@headfont=\toks39
+\thm@notefont=\toks40
+\thm@headpunct=\toks41
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks42
+)
+\c@theorem=\count152
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+Package: beamerbasethemes 2010/05/01  (rcs-revision efa082c6111d)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemedefault
+.sty
+Package: beamerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/font/beamerfontthemedefa
+ult.sty
+Package: beamerfontthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemede
+fault.sty
+Package: beamercolorthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemede
+fault.sty
+Package: beamerinnerthemedefault 2013/10/15  (rcs-revision 65cb471f9634)
+\beamer@dima=\dimen186
+\beamer@dimb=\dimen187
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemede
+fault.sty
+Package: beamerouterthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/theme/beamerthemeWarsaw.
+sty
+Package: beamerthemeWarsaw 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerthemero
+unded.sty
+Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemesh
+adow.sty
+Package: beamerouterthemeshadow 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemesp
+lit.sty
+Package: beamerouterthemesplit 2012/10/16  (rcs-revision 51a8c72084af)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeor
+chid.sty
+Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemewh
+ale.sty
+Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemese
+ahorse.sty
+Package: beamercolorthemeseahorse 2010/06/17  (rcs-revision d02a7cf4d8ae)
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2014/03/24 3.9k The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2012/08/20 v3.3p English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2014/03/24 3.9k Babel common definitions
+\babel@savecnt=\count153
+\U@D=\dimen188
+LaTeX Info: Redefining \textlatin on input line 1428.
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2014/04/30 v1.2b Input encoding file
+\inpenc@prehook=\toks43
+\inpenc@posthook=\toks44
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2014/04/30 v1.2b Input encoding file
+))
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip57
+\subfigcapskip=\skip58
+\subfigcaptopadj=\dimen189
+\subfigbottomskip=\skip59
+\subfigcapmargin=\dimen190
+\subfiglabelskip=\skip60
+\c@subfigure=\count154
+\c@lofdepth=\count155
+\c@subtable=\count156
+\c@lotdepth=\count157
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip61
+\subfig@bottom=\skip62
+)
+\sympureletters=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup8
+\symboldletters=\mathgroup9
+\symboldsymbols=\mathgroup10
+\symboldpureletters=\mathgroup11
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 137.
+LaTeX Info: Redefining \bm on input line 203.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count158
+\calc@Bcount=\count159
+\calc@Adimen=\dimen191
+\calc@Bdimen=\dimen192
+\calc@Askip=\skip63
+\calc@Bskip=\skip64
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count160
+\calc@Cskip=\skip65
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip66
+\fb@frw=\dimen193
+\fb@frh=\dimen194
+\FrameRule=\dimen195
+\FrameSep=\dimen196
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (./presentation.aux)
+\openout1 = `presentation.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 99.
+LaTeX Font Info:    ... okay on input line 99.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=307.28987pt
+* \textheight=244.6939pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count161
+\scratchdimen=\dimen197
+\scratchbox=\box53
+\nofMPsegments=\count162
+\nofMParguments=\count163
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count164
+\MPscratchDim=\dimen198
+\MPnumerator=\count165
+\makeMPintoPDFobject=\count166
+\everyMPtoPDFconversion=\toks46
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+ABD: EveryShipout initializing macros
+\AtBeginShipoutBox=\box54
+Package hyperref Info: Link coloring OFF on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count167
+)
+LaTeX Info: Redefining \ref on input line 99.
+LaTeX Info: Redefining \pageref on input line 99.
+LaTeX Info: Redefining \nameref on input line 99.
+
+(./presentation.out) (./presentation.out)
+\@outlinefile=\write5
+\openout5 = `presentation.out'.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 99.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 99.
+\symnumbers=\mathgroup12
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 99.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `pureletters' in the math version `normal' on input line 99
+.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/mathkerncmss/m/sl --> T1/phv/m/it on input line 99.
+
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `pureletters' in the math version `bold' on input line 99.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/bx/sl --> T1/phv/m/it on input line 99
+.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/ptm/m/n on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 99.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 99.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> T1/ptm/bx/n on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  T1/phv/bx/n --> T1/phv/bx/n on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 99.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  T1/pcr/m/n --> T1/pcr/bx/n on input line 99.
+LaTeX Font Info:    Redeclaring symbol font `boldpureletters' on input line 99.
+
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `boldpureletters' in the math version `normal' on input lin
+e 99.
+LaTeX Font Info:    Overwriting symbol font `boldpureletters' in version `norma
+l'
+(Font)                  OT1/mathkerncmss/bx/sl --> T1/phv/bx/it on input line 9
+9.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `boldpureletters' in the math version `bold' on input line 
+99.
+LaTeX Font Info:    Overwriting symbol font `boldpureletters' in version `bold'
+
+(Font)                  OT1/mathkerncmss/bx/sl --> T1/phv/bx/it on input line 9
+9.
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
+ic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bib
+liography-dictionary/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-env
+ironment-dictionary/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-mon
+ths-dictionary/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-num
+bers-dictionary/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-the
+orem-dictionary/translator-theorem-dictionary-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+LaTeX Info: Redefining \includegraphics on input line 99.
+ (./presentation.nav) <ur-logo2.pdf, id=48, 688.5725pt x 80.3pt>
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 99.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ (./main.tex
+\c@myN=\count168
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 50.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ur-logo2.pdf>]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 70.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [2
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 70.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [3
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 70.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [4
+
+]
+\openout4 = `presentation.vrb'.
+
+
+(./presentation.vrb
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 6.
+
+Overfull \hbox (108.50966pt too wide) in paragraph at lines 17--17
+[][]\T1/pcr/m/sl/9 # biocLite(c("ALL", "genefilter", "GOstats", "samr", "multte
+st", "GEOquery"))[][] 
+ []
+
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 94.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [5
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 115.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 115.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 115.
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <8> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <6> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 115.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <6> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 115.
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 115.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[6
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 115.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [7
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 115.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [8
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 115.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [9
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 131.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [10
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 131.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [11
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 131.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [12
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <7> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <7> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <5> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <5> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <9> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 154.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <9> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 154.
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [13
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [14
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [15
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [16
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [17
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 154.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [18
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 172.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [19
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 172.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [20
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 172.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [21
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 172.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [22
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 8.
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 192.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [23
+
+]
+\openout4 = `presentation.vrb'.
+
+
+(./presentation.vrb)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 218.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [24
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb)
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 242.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [25
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 257.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [26
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 257.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [27
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 257.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [28
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 257.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [29
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 257.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [30
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 273.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 273.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 273.
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 273.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [31
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 273.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [32
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 273.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [33
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 286.
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 286.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [34
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 300.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <5> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 300.
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 300.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [35
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 300.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [36
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 313.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [37
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 334.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [38
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 334.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [39
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 334.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [40
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 334.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [41
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 334.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [42
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 347.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [43
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 347.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [44
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 366.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [45
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 366.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [46
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 366.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [47
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 382.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [48
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 382.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [49
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 382.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [50
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 382.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [51
+
+]
+\openout4 = `presentation.vrb'.
+
+
+(./presentation.vrb
+Overfull \hbox (38.30974pt too wide) in paragraph at lines 16--16
+[][]\T1/pcr/m/n/9 top5.table[] []<-[] []\T1/pcr/b/n/9 cbind[][]\T1/pcr/m/n/9 ([
+][]\T1/pcr/b/n/9 links[][]\T1/pcr/m/n/9 (hgu95av2SYMBOL[top5]),tt.sorted[[][]1[
+][]:[][]5[][],])[][] 
+ []
+
+) [52
+
+] (./results/table-top5.tex)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 410.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [53
+
+]
+<results/heatmap.pdf, id=1528, 505.89pt x 505.89pt>
+File: results/heatmap.pdf Graphic file (type pdf)
+ <use results/heatmap.pdf>
+Package pdftex.def Info: results/heatmap.pdf used on input line 419.
+(pdftex.def)             Requested size: 274.6262pt x 274.62773pt.
+
+Overfull \vbox (16.54286pt too high) detected at line 419
+ []
+
+[54
+
+ <./results/heatmap.pdf>]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+Overfull \hbox (0.83377pt too wide) in paragraph at lines 7--7
+[][]\T1/pcr/m/sl/9 ## organize the expressions, grouping, genenames, whether[][
+] 
+ []
+
+
+Overfull \hbox (16.70976pt too wide) in paragraph at lines 11--11
+[]    []\T1/pcr/m/n/9 genenames[][]=[][]\T1/pcr/b/n/9 paste[][]\T1/pcr/m/n/9 ([
+][]"g"[][],[][]\T1/pcr/b/n/9 as.character[][]\T1/pcr/m/n/9 ([][]1[][]:[][]\T1/p
+cr/b/n/9 nrow[][]\T1/pcr/m/n/9 (data2)),[][]sep[][]=[][]""[][]),[][] 
+ []
+
+
+Overfull \hbox (54.50972pt too wide) in paragraph at lines 14--14
+[][]\T1/pcr/m/n/9 samr.obj[] []<-[] []\T1/pcr/b/n/9 samr[][]\T1/pcr/m/n/9 (inpu
+t,[] []resp.type[][]=[][]"Two class unpaired"[][],[] []nperms[][]=[][]100[][])[
+][] 
+ []
+
+
+Overfull \hbox (11.30977pt too wide) in paragraph at lines 19--19
+[]                 []\T1/pcr/m/n/9 del[][]=[][]0[][], input, delta.table,[] []a
+ll.genes[][]=[][]TRUE[][])[][] 
+ []
+
+
+Overfull \hbox (5.90977pt too wide) in paragraph at lines 20--20
+[][]\T1/pcr/b/n/9 sum[][]\T1/pcr/m/n/9 ([][]\T1/pcr/b/n/9 as.numeric[][]\T1/pcr
+/m/n/9 (siggenes.table[][]$[][]genes.up[,[] []"q-value(%)"[][]])[][]<[][]5[][])
+[][] 
+ []
+
+
+Overfull \hbox (5.90977pt too wide) in paragraph at lines 21--21
+[][]\T1/pcr/b/n/9 sum[][]\T1/pcr/m/n/9 ([][]\T1/pcr/b/n/9 as.numeric[][]\T1/pcr
+/m/n/9 (siggenes.table[][]$[][]genes.lo[,[] []"q-value(%)"[][]])[][]<[][]5[][])
+[][] 
+ []
+
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 446.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [55
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+Overfull \hbox (124.70964pt too wide) in paragraph at lines 18--18
+[][]\T1/pcr/m/n/9 siggenes.table[][]<-[][]\T1/pcr/b/n/9 samr.compute.siggenes.t
+able[][]\T1/pcr/m/n/9 (samr.obj,[] []del[][]=[][]0[][], input, delta.table)[][]
+ 
+ []
+
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 470.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [56
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+Overfull \hbox (135.50963pt too wide) in paragraph at lines 7--7
+[][]\T1/pcr/m/n/9 dds[] []<-[] []\T1/pcr/b/n/9 DESeqDataSetFromMatrix[][]\T1/pc
+r/m/n/9 (pasillaExp,[] []\T1/pcr/b/n/9 DataFrame[][]\T1/pcr/m/n/9 (pasillaPheno
+),[] []~[] []pasillaPheno)[][] 
+ []
+
+)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 488.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [57
+
+]
+Overfull \hbox (4.9732pt too wide) in paragraph at lines 501--501
+[][]  
+ []
+
+File: ur-logo2.pdf Graphic file (type pdf)
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 501.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [58
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 509.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [59
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 521.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [60
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 532.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [61
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 532.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [62
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 541.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [63
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 553.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [64
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 561.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [65
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 576.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [66
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 576.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [67
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 604.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [68
+
+]
+\openout4 = `presentation.vrb'.
+
+
+(./presentation.vrb)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 626.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [69
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 640.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [70
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 647.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [71
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 654.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [72
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 660.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [73
+
+]
+\openout4 = `presentation.vrb'.
+
+
+(./presentation.vrb)
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 677.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [74
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 693.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [75
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 693.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [76
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 693.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [77
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 693.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [78
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 693.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [79
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [80
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [81
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [82
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [83
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [84
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 714.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [85
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+Overfull \hbox (5.90977pt too wide) in paragraph at lines 5--5
+[][]\T1/pcr/m/sl/9 ## The correlations between the 1st, 2nd, and 3rd top DEGs[]
+
+ []
+
+) [86
+
+] (./results/table-lda.tex)
+<results/lda.pdf, id=2413, 505.89pt x 505.89pt>
+File: results/lda.pdf Graphic file (type pdf)
+ <use results/lda.pdf>
+Package pdftex.def Info: results/lda.pdf used on input line 745.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 745--745
+[][]  
+ []
+
+[87
+
+ <./results/lda.pdf>] (./results/table-lda.tex)
+File: results/lda.pdf Graphic file (type pdf)
+ <use results/lda.pdf>
+Package pdftex.def Info: results/lda.pdf used on input line 745.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 745--745
+[][]  
+ []
+
+[88
+
+] (./results/table-lda.tex)
+File: results/lda.pdf Graphic file (type pdf)
+ <use results/lda.pdf>
+Package pdftex.def Info: results/lda.pdf used on input line 745.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 745--745
+[][]  
+ []
+
+[89
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 758.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [90
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 758.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [91
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 758.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[92
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 770.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [93
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 770.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [94
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 770.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[95
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 788.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [96
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 788.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [97
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 788.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[98
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 788.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [99
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 788.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [100
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+<results/pca.pdf, id=2787, 505.89pt x 505.89pt>
+File: results/pca.pdf Graphic file (type pdf)
+ <use results/pca.pdf>
+Package pdftex.def Info: results/pca.pdf used on input line 15.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 14--16
+[][]  
+ []
+
+) [101
+
+ <./results/pca.pdf>]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 826.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [102
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 826.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[103
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 826.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [104
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 826.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [105
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 826.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[106
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb) [107
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb
+<results/kmeans.pdf, id=2976, 505.89pt x 505.89pt>
+File: results/kmeans.pdf Graphic file (type pdf)
+ <use results/kmeans.pdf>
+Package pdftex.def Info: results/kmeans.pdf used on input line 5.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 5--6
+ [] 
+ []
+
+<results/mclust.pdf, id=2977, 505.89pt x 505.89pt>
+File: results/mclust.pdf Graphic file (type pdf)
+ <use results/mclust.pdf>
+Package pdftex.def Info: results/mclust.pdf used on input line 14.
+(pdftex.def)             Requested size: 180.67499pt x 180.67676pt.
+
+Overfull \hbox (27.03006pt too wide) in paragraph at lines 14--15
+ [] 
+ []
+
+) [108
+
+ <./results/kmeans.pdf> <./results/mclust.pdf>]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 898.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[109
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 898.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [110
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 898.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [111
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 898.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[112
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 898.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [113
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [114
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[115
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [116
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [117
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[118
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [119
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 913.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [120
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 922.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[121
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 922.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [122
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 922.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [123
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb)
+[124
+
+]
+\openout4 = `presentation.vrb'.
+
+ (./presentation.vrb) [125
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 984.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [126
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 984.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+
+[127
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 984.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [128
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 984.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [129
+
+] (./presentation.bbl)
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [130
+
+ </usr/share/texlive/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf>]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [131
+
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [132
+
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+
+<use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [133
+
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [134
+
+
+]
+File: ur-logo2.pdf Graphic file (type pdf)
+ <use ur-logo2.pdf>
+Package pdftex.def Info: ur-logo2.pdf used on input line 989.
+(pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
+ [135
+
+
+])
+\tf@nav=\write6
+\openout6 = `presentation.nav'.
+
+\tf@toc=\write7
+\openout7 = `presentation.toc'.
+
+\tf@snm=\write8
+\openout8 = `presentation.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 104.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 104.
+
+(./presentation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 104.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 104.
+Package rerunfilecheck Info: File `presentation.out' has not changed.
+(rerunfilecheck)             Checksum: 0A9C25E9C3BB15B98DEBFFEFA6FB52CA;565.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 104.
+ ) 
+Here is how much of TeX's memory you used:
+ 18655 strings out of 495021
+ 347875 string characters out of 6181344
+ 418408 words of memory out of 5000000
+ 20997 multiletter control sequences out of 15000+600000
+ 100109 words of font info for 146 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 56i,19n,65p,392b,898s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/helvetic/uhvro8a.pfb>
+Output written on presentation.pdf (135 pages, 498053 bytes).
+PDF statistics:
+ 3846 PDF objects out of 4296 (max. 8388607)
+ 3628 compressed objects within 37 object streams
+ 299 named destinations out of 1000 (max. 500000)
+ 185 words of extra memory for PDF output out of 10000 (max. 10000000)
+

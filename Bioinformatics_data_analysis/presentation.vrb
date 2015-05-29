@@ -1,0 +1,18 @@
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{## Run the hyper-geometric test for significance.}
+\hlstd{rr.gsea} \hlkwb{<-} \hlkwd{hyperGTest}\hlstd{(params)}
+
+\hlcom{## Run a reasonable multiple testing procedure}
+\hlstd{pp.gsea} \hlkwb{<-} \hlkwd{pvalues}\hlstd{(rr.gsea)}
+\hlstd{pp.gsea.bh} \hlkwb{<-} \hlkwd{p.adjust}\hlstd{(pp.gsea,} \hlstr{"BH"}\hlstd{)}
+
+\hlcom{## Output a table as report.}
+\hlstd{nn} \hlkwb{<-} \hlkwd{sum}\hlstd{(pp.gsea.bh}\hlopt{<}\hlnum{0.05}\hlstd{)}
+\hlstd{tab.gsea} \hlkwb{<-} \hlkwd{summary}\hlstd{(rr.gsea,}\hlkwc{pvalue}\hlstd{=pp.gsea[nn}\hlopt{+}\hlnum{1}\hlstd{])}
+\hlkwd{write.csv}\hlstd{(tab.gsea,} \hlkwc{file}\hlstd{=}\hlstr{"results/table-gsea.csv"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+63 pathways are significant. Show the \texttt{table-gsea.csv} file.

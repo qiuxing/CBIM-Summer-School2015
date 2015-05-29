@@ -1,0 +1,7 @@
+\frametitle{Normal density and histogram}
+  An example of non-normal distribution ($\Gamma(2,2)$).  Also explain
+  the relationship between pdf and cumulative distribution function
+  (cdf).
+  \begin{center}
+    \includegraphics[height=2.0in]{gamma}
+  \end{center}

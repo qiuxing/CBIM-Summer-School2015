@@ -1,0 +1,7 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Descriptive Statistics}{2}{section.2}
+\contentsline {section}{\numberline {3}Probability distributions}{5}{section.3}
+\contentsline {section}{\numberline {4}Point Estimation}{6}{section.4}
+\contentsline {section}{\numberline {5}Hypothesis Testing}{7}{section.5}
+\contentsline {section}{\numberline {6}Linear Regression Analysis}{10}{section.6}
