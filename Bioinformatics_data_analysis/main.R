@@ -1,6 +1,6 @@
-## ----setup, include=FALSE------------------------------------------------
+## ----setup, echo=FALSE, include=FALSE------------------------------------
 library(knitr)
-opts_chunk[["set"]](fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize', fig.width=4.5, fig.height=4.5, out.width='.48\\linewidth')
+opts_chunk[["set"]](message=FALSE, warning=FALSE, fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize', fig.width=4.5, fig.height=4.5, out.width='.48\\linewidth')
 
 ## ----echo=FALSE, results='hide'------------------------------------------
 # additional setup
@@ -22,16 +22,19 @@ library(hgu95av2.db)
 library(MASS)
 library(xtable)
 library(mclust)
-
-
+library(samr)
+library(GEOquery)
+library(DESeq2)
 
 
 ## ----install-bioconductor, eval=FALSE------------------------------------
-## source("http://bioconductor.org/biocLite.R")
-## biocLite()
+## 
+## # source("http://bioconductor.org/biocLite.R")
+## # biocLite()
+## 
 
 ## ----install-bioconductor-packages, eval=FALSE---------------------------
-## biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
+## # biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
 
 ## ----load-ALL, results='hide'--------------------------------------------
 ## biocLite("ALL")
@@ -83,12 +86,58 @@ pdf("results/heatmap.pdf")
 heatmap(exprs(top50set), col=topo.colors(50), ColSideColors=patientcolors, Colv=NA)
 dev.off()
 
+## ----sam, cache=TRUE, results='hide'-------------------------------------
+## The phenotypic information contained in data2
+pheno2 <- pData(data2)
+## organize the expressions, grouping, genenames, whether
+## data have been log2 transformed into one list.
+input=list(x=exprs(data2), y=pheno2[["mol.biol"]],
+    geneid=as.character(1:nrow(data2)),
+    genenames=paste("g",as.character(1:nrow(data2)),sep=""),
+    logged2=TRUE)
+## Please use 1000 permutations in a real application
+samr.obj <- samr(input, resp.type="Two class unpaired", nperms=100)
+## detect significant genes
+delta.table <- samr.compute.delta.table(samr.obj,
+                   min.foldchange=0.1, nvals=200)
+siggenes.table <- samr.compute.siggenes.table(samr.obj,
+                 del=0, input, delta.table, all.genes=TRUE)
+sum(as.numeric(siggenes.table$genes.up[, "q-value(%)"])<5)
+sum(as.numeric(siggenes.table$genes.lo[, "q-value(%)"])<5)
+
+
+## ----sam-rna-seq, cache=TRUE, results='hide'-----------------------------
+## please load pasilla.Rdata from the net-drive
+load("pasilla.Rdata")
+head(pasillaExp)
+pasillaPheno
+### Note that we don't need logged2=TRUE
+input=list(x=pasillaExp, y=pasillaPheno,
+    geneid=as.character(1:nrow(pasillaExp)),
+    genenames=rownames(pasillaExp))
+## Notice the assay.type arguement
+samr.obj<-samr(input,  resp.type="Two class unpaired",
+               assay.type="seq", nperms=100)
+delta.table <- samr.compute.delta.table(samr.obj)
+siggenes.table<-samr.compute.siggenes.table(samr.obj, del=0, input, delta.table)
+
+
+## ----deseq2, cache=TRUE, results='hide'----------------------------------
+# object construction
+dds <- DESeqDataSetFromMatrix(pasillaExp, DataFrame(pasillaPheno), ~ pasillaPheno)
+# standard analysis
+dds <- DESeq(dds)
+res <- results(dds)
+head(res)
+sum(res[, "padj"]<0.05, na.rm=TRUE)
+
+
 ## ----bonferroni----------------------------------------------------------
 pvals <- tt[["p.value"]]
 pvals.bonf <- p.adjust(pvals, "bonferroni")
 sum(pvals.bonf<0.05)
 
-## ----westfall, results='hide'--------------------------------------------
+## ----westfall, cache=TRUE, results='hide'--------------------------------
 library(multtest)
 cl <- data1[["mol.biol"]]=="NEG" #class labels
 rr <- mt.maxT(exprs(data2), cl, B=1000)
@@ -170,7 +219,7 @@ par(pty="s")
 plot(pc2b, asp=1, col=rr.mclust[["classification"]])
 dev.off()
 
-## ----gsea----------------------------------------------------------------
+## ----gsea, cache=TRUE----------------------------------------------------
 ## sig.probes are the significant probe sets
 library(GOstats)
 sig.probes <- rownames(tt)[pvals.fdr<0.1]
@@ -190,7 +239,7 @@ params <- new("GOHyperGParams", geneIds=sig.ids,
               conditional=FALSE,
               testDirection="over")
 
-## ----gsea2---------------------------------------------------------------
+## ----gsea2, cache=TRUE---------------------------------------------------
 ## Run the hyper-geometric test for significance.
 rr.gsea <- hyperGTest(params)
 

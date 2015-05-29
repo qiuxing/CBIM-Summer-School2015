@@ -2,18 +2,37 @@
  (lambda ()
     (LaTeX-add-bibliographies
      "xing")
+    (LaTeX-add-labels
+     "eq:t"
+     "eq:sam"
+     "eq:wilcoxon"
+     "eq:fwer"
+     "eq:pfer"
+     "eq:fdr"
+     "eq:lda-model"
+     "fig:kmeans"
+     "fig:mclust")
     (TeX-add-symbols
      '("uvec" ["argument"] 1)
      '("umark" 1)
      '("urepeat" 2)
      '("uinner" 2)
-     '("uSym" 1)
+     '("ustab" 1)
+     '("uo" 2)
+     '("us" 1)
      '("ucorr" 2)
      '("ucor" 2)
      '("ucov" 2)
+     '("SL" 1)
+     '("GL" 1)
      '("uder" 2)
      '("ensuretext" 1)
+     "C"
+     "CP"
+     "Q"
      "R"
+     "RP"
+     "Z"
      "med"
      "uPr"
      "uE"
@@ -24,5 +43,8 @@
      "uequiv"
      "uforall"
      "ie"
-     "eg")))
+     "eg")
+    (TeX-run-style-hooks
+     "results/table-top5"
+     "results/table-lda")))
 

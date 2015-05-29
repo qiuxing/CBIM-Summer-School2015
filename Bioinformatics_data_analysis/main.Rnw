@@ -39,9 +39,9 @@
     \raggedright\footnotesize
     \itshape\hrule\smallskip#1\par\smallskip\hrule}}
 
-<<setup, include=FALSE>>=
+<<setup, echo=FALSE, include=FALSE>>=
 library(knitr)
-opts_chunk[["set"]](fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize', fig.width=4.5, fig.height=4.5, out.width='.48\\linewidth')
+opts_chunk[["set"]](message=FALSE, warning=FALSE, fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize', fig.width=4.5, fig.height=4.5, out.width='.48\\linewidth')
 @
 
 <<echo=FALSE, results='hide'>>=
@@ -73,8 +73,9 @@ library(hgu95av2.db)
 library(MASS)
 library(xtable)
 library(mclust)
-
-
+library(samr)
+library(GEOquery)
+library(DESeq2)
 
 @ 
 
@@ -98,32 +99,35 @@ library(mclust)
   \frametitle{Installing BioConductor}
   Install BioConductor from \texttt{R} is simple
 <<install-bioconductor, eval=FALSE>>=
-source("http://bioconductor.org/biocLite.R")
-biocLite()
-@     
+
+# source("http://bioconductor.org/biocLite.R")
+# biocLite()
+
+@ 
+
 Once BioConductor is installed, you can install specific package by the same \texttt{biocLite()} function
+
 <<install-bioconductor-packages, eval=FALSE>>=
-biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
+# biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
 @   
+
 \end{frame}
 
 
 \section{Welcome to the world of *-omics data!}
 
 \begin{frame}
-  \frametitle{Microarrays}
+  \frametitle{Gene expressions}
   \begin{itemize}
-  \item The most commonly used bioinformatics data are DNA/RNA
-    microarrays (Affymetrix GeneChip platform, Illumina Beads Array,
-    etc) and their variants.
-  \item Microarrays measures the expression levels (concentration of
-    RNA/DNA in the sample) for all genes through hybridization.
-  \item Many synthesized \alert{probes} are attached in the array to
-    hybridize with specific target RNA/DNA fragments.
-  \item Expression levels detected by these probes are then processed
-    into a $m\times n$ dimensional matrix for further analysis. Here
-    $m$ is the number of probesets (can be mapped to genes); $n$ is
-    the number of samples (\textit{a.k.a.} arrays/slides).
+  \item The most commonly used bioinformatics data are some form of
+    gene expressions, measured by techniques such as microarrays
+    (RNA/DNA microarrays, exonarray, beads array, etc) and RNA-seq
+    (miRNA-seq, ribosomal profiling, etc).
+  \item While microarray and RNA-seq technologies use very different
+    approaches, at the end of the day, they both can report expression
+    levels as a $m\times n$ dimensional matrix.
+  \item Here $m$ is the number of units such as genes or exons, $n$ is
+    the number of samples.
   \item Typically $m$ is in the range of $20\sim 50$ thousands, and
     $n$ is in the range of $10\sim 100$. This is a typical ``large
     $p$, small $n$'' scenario in statistical analysis.
@@ -133,31 +137,16 @@ biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
 \begin{frame}
   \frametitle{Other *-omics data (I)}
   \begin{itemize}
-  \item Though we focus on microarray data analysis in this talk, we
-    would like to point out that many other *-omics data exist.
+  \item Though we focus on gene expression data analysis in this talk,
+    we would like to point out that many other *-omics data exist.
   \item PCR (Polymerase chain reaction) data. Low throughput
-    (cheaper); high sensitivity; often used \emph{after} microarray
-    analysis to \emph{confirm} differentiation of specific genes.
+    (cheaper); high sensitivity; often used \emph{after}
+    high-throughput gene expression analysis to \emph{confirm}
+    differentiation of specific genes.
   \item Protein binding microarray (\textit{a.k.a.} biochip,
     proteinchip).  Records protein instead of DNA/RNA
     expressions. Good for identifying protein-protein interactions;
     transcription factor protein-activation; antibody measurements.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Other *-omics data (II)}
-  \begin{itemize}
-  \item RNA-seq arrays. Uses the ``next-generation sequencing
-    technology''.
-  \item Provides data at the nucleotide sequence level.
-  \item Can be used as a substitute of microarray expression data.
-  \item Can also be used to detect single nucleotide variation (SNP),
-    \textit{de novo} reconstruction of transcriptome, etc.
-  \item \alert{Cons:} 5\% of high abundance transcripts
-    (``house-keeping'' genes) can exhaust 75\% of reads, many
-    important genes will be below detection threshold.
-  \item Many, many other types of data exist for specialized studies.
   \end{itemize}
 \end{frame}
 
@@ -182,8 +171,26 @@ biocLite(c("ALL", "genefilter", "GOstats", "samr", "multtest", "GEOquery"))
         additive in the log-scale, etc.}.
     \end{enumerate}
   \end{itemize}
-  
 \end{frame}
+
+\begin{frame}{RNA-seq data pre-processing}
+  \begin{itemize}
+  \item Acquire the raw sequence data. For example, on Illumina
+    platform, this initial step produces (huge) \texttt{FASTQ} files.
+  \item Alignment. In the second step, these raw sequences are aligned
+    to a well annotated reference genome.  If one piece of sequence is
+    aligned to a known genetic unit (exon, gene, or splice junctions),
+    we count one ``match''. Tools: TopHat, BowTie2, etc.  Output file:
+    \texttt{BAM} or \texttt{SAM} file.
+  \item \texttt{Rsamtools} to work with BAM files; \texttt{Rsubread}
+    to turn these files into counting matrix.
+  \item Normalization.  Note that once you normalize the counts, most
+    tools that are designed specifically for RNA-seq, such as
+    \texttt{DESeq2}, no longer apply.  Instead, you should use
+    microarray-oriented tools.
+  \end{itemize}
+\end{frame}
+
 
 \section{Now we have the data. Which genes are ``interesting''?}
 
@@ -197,7 +204,7 @@ library(ALL)      #This is a data library
 data("ALL")       #a 12,625 by 128 dim matrix 
 print(ALL)        #print out some useful information
 @     
-   Object: \texttt{ExpressionSet}; features (genes/probesets): \Sexpr{nrow(ALL)}; sample size: \Sexpr{ncol(ALL)}.
+Object: \texttt{ExpressionSet}; features (genes/probesets): \Sexpr{nrow(ALL)}; sample size: \Sexpr{ncol(ALL)}.
 \end{frame}
 
 \begin{frame}[fragile,shrink]
@@ -250,7 +257,7 @@ data2 <- data1[filter1 & filter2, ]
   are wided used in microarray data analysis:
   \begin{itemize}
   \item Two sample student $t$-statistic
-  \item Wilcoxon rank sum statistic
+  \item Wilcoxon rank-sum statistic
   \item Kolmogorov-Smirnov statistic
   \item Cram\'er-von Mises statistic
   \item $N$-statistic
@@ -378,7 +385,7 @@ data2 <- data1[filter1 & filter2, ]
     sensitive to a departure in shifting.
     \cite{Klebanov2005permutationtestmotivated}.
   \item This is also used in differential association studies
-    \cite{qiu-hu2010,rui2009b,Needham2011}.
+    \cite{hu08:_detec_inter_correl_chang_in_microar_analy,rui2009b,Needham2011}.
   \end{itemize}
 \end{frame}
 
@@ -419,6 +426,66 @@ dev.off()
   \frametitle{A heatmap of the top 50 DEGs}
   \vspace{-.1in}
     \includegraphics[width=3.8in]{results/heatmap}
+\end{frame}
+
+\begin{frame}[fragile]{SAM example}
+<<sam, cache=TRUE, results='hide'>>=
+## The phenotypic information contained in data2
+pheno2 <- pData(data2)
+## organize the expressions, grouping, genenames, whether
+## data have been log2 transformed into one list.
+input=list(x=exprs(data2), y=pheno2[["mol.biol"]],
+    geneid=as.character(1:nrow(data2)),
+    genenames=paste("g",as.character(1:nrow(data2)),sep=""),
+    logged2=TRUE)
+## Please use 1000 permutations in a real application
+samr.obj <- samr(input, resp.type="Two class unpaired", nperms=100)
+## detect significant genes
+delta.table <- samr.compute.delta.table(samr.obj,
+                   min.foldchange=0.1, nvals=200)
+siggenes.table <- samr.compute.siggenes.table(samr.obj,
+                 del=0, input, delta.table, all.genes=TRUE)
+sum(as.numeric(siggenes.table$genes.up[, "q-value(%)"])<5)
+sum(as.numeric(siggenes.table$genes.lo[, "q-value(%)"])<5)
+
+@   
+  
+\end{frame}
+
+\begin{frame}[fragile]{RNA-seq data, SAM}
+  
+<<sam-rna-seq, cache=TRUE, results='hide'>>=
+## please load pasilla.Rdata from the net-drive
+load("pasilla.Rdata")
+head(pasillaExp)
+pasillaPheno
+### Note that we don't need logged2=TRUE
+input=list(x=pasillaExp, y=pasillaPheno,
+    geneid=as.character(1:nrow(pasillaExp)),
+    genenames=rownames(pasillaExp))
+## Notice the assay.type arguement
+samr.obj<-samr(input,  resp.type="Two class unpaired",
+               assay.type="seq", nperms=100)
+delta.table <- samr.compute.delta.table(samr.obj)
+siggenes.table<-samr.compute.siggenes.table(samr.obj, del=0, input, delta.table)
+
+@   
+  
+\end{frame}
+
+\begin{frame}[fragile]{RNA-seq, DESeq2}
+
+<<deseq2, cache=TRUE, results='hide'>>=
+# object construction
+dds <- DESeqDataSetFromMatrix(pasillaExp, DataFrame(pasillaPheno), ~ pasillaPheno)
+# standard analysis
+dds <- DESeq(dds)
+res <- results(dds)
+head(res)
+sum(res[, "padj"]<0.05, na.rm=TRUE)
+
+@   
+  
 \end{frame}
 
 \section{How to control false discoveries for 20,000 comparisons}
@@ -533,7 +600,7 @@ It finds \Sexpr{sum(pvals.bonf<0.05)} DEGs.
 \begin{frame}[fragile]
   \frametitle{Westfall and Young}
   Westfall and Young permutation test is a more powerful alternative
-<<westfall, results='hide'>>=
+<<westfall, cache=TRUE, results='hide'>>=
 library(multtest)
 cl <- data1[["mol.biol"]]=="NEG" #class labels
 rr <- mt.maxT(exprs(data2), cl, B=1000)
@@ -848,17 +915,16 @@ dev.off()
 \end{frame}
 
 \begin{frame}
-  \frametitle{Gene Set Enrichment Anaysis (GSEA)}
+  \frametitle{Functional Enrichment Analysis}
   \begin{itemize}
-  \item Genes are grouped into sets, such as metabolic pathways.
+  \item Genes are grouped into sets, such as biological pathways or GO terms.
   \item The rationale of the hypergeometric test.
   \item The implementation. See the next slide.
   \end{itemize}
 \end{frame}
 
-
-\begin{frame}[plain,fragile]
-<<gsea>>=
+\begin{frame}[plain,fragile]{Enrichment analysis example}
+<<gsea, cache=TRUE>>=
 ## sig.probes are the significant probe sets
 library(GOstats)
 sig.probes <- rownames(tt)[pvals.fdr<0.1]
@@ -882,7 +948,7 @@ params <- new("GOHyperGParams", geneIds=sig.ids,
 
 
 \begin{frame}[plain,fragile]
-<<gsea2>>=
+<<gsea2, cache=TRUE>>=
 ## Run the hyper-geometric test for significance.
 rr.gsea <- hyperGTest(params)
 
@@ -902,15 +968,13 @@ write.csv(tab.gsea, file="results/table-gsea.csv")
 \begin{frame}
   \frametitle{Other advanced techniques}
   \begin{itemize}
+  \item Gene set enrichment analysis. Its relationship to enrichment
+    analyses based on discrete tests such as hypergeometric
+    test. Package: \texttt{limma}, function \texttt{camera()}.
   \item Network reconstruction. Bayesian network; boolean network.
   \item The use of ODE in network analysis for time-course data.
   \item Differential association analysis.
   \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \begin{center} \bf \Large Thank You!
-  \end{center}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Bibliography}
