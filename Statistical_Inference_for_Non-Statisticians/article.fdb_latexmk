@@ -1,0 +1,21 @@
+# Fdb version 3
+["bibtex article"] 1433340912 "article.aux" "article.bbl" "article" 1433340912
+  "/home/xqiu/Work/bibtex/xing.bib" 1431486630 809235 3bb9eeecf1aaeeb5f4437f11a067406f ""
+  "/usr/share/texlive/texmf-dist/bibtex/bst/amscls/amsplain.bst" 1252602681 27098 ec7e6b64cc74d914fa2998f3a6a79293 ""
+  "article.aux" 1432928028 1849 2ecbb036e52d28a5ee83a850e969d0bb ""
+  "article.bcf" 0 -1 0 ""
+  (generated)
+  "article.bbl"
+["pdflatex"] 1433340912 "article.pdf" "article.pdf" "article" 1433340915
+  "/etc/texmf/web2c/texmf.cnf" 1424326036 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1406646078 31088 8e088e958dd0258cc5414842768a3a00 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1406646078 31088 8e088e958dd0258cc5414842768a3a00 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1424326757 722772 bb6c555f26cd8611bf89f2eb7f00c1bd ""
+  "article.aux" 1432928028 1849 2ecbb036e52d28a5ee83a850e969d0bb ""
+  "article.pdf" 1432928028 369324 6c84875da45d94882337cab0a42be45d "pdflatex"
+  (generated)
+  "article.aux"
+  "article.pdf"
+  "article.log"
+  "article.out"
+  "article.toc"

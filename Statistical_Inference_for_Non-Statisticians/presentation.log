@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.2.19)  29 MAY 2015 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.2.19)  3 JUN 2015 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1175,7 +1175,7 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 183.
  [12
 
 ]
-<spread.pdf, id=380, 289.08pt x 172.645pt>
+<spread.pdf, id=395, 289.08pt x 172.645pt>
 File: spread.pdf Graphic file (type pdf)
  <use spread.pdf>
 Package pdftex.def Info: spread.pdf used on input line 190.
@@ -1230,7 +1230,7 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 243.
  [18
 
 ]
-<histogram.pdf, id=548, 289.08pt x 172.645pt>
+<histogram.pdf, id=563, 289.08pt x 172.645pt>
 File: histogram.pdf Graphic file (type pdf)
  <use histogram.pdf>
 Package pdftex.def Info: histogram.pdf used on input line 249.
@@ -1243,7 +1243,7 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 249.
  [19
 
  <./histogram.pdf>]
-<boxplot.pdf, id=582, 289.08pt x 172.645pt>
+<boxplot.pdf, id=596, 289.08pt x 172.645pt>
 File: boxplot.pdf Graphic file (type pdf)
  <use boxplot.pdf>
 Package pdftex.def Info: boxplot.pdf used on input line 256.
@@ -1274,7 +1274,7 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 282.
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-<normal.pdf, id=665, 1003.75pt x 799.98875pt>
+<normal.pdf, id=679, 1003.75pt x 799.98875pt>
 File: normal.pdf Graphic file (type pdf)
  <use normal.pdf>
 Package pdftex.def Info: normal.pdf used on input line 6.
@@ -1291,7 +1291,7 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 292.
 \openout4 = `presentation.vrb'.
 
  (./presentation.vrb
-<gamma.jpg, id=699, 674.52pt x 674.52pt>
+<gamma.jpg, id=712, 674.52pt x 674.52pt>
 File: gamma.jpg Graphic file (type jpg)
  <use gamma.jpg>
 Package pdftex.def Info: gamma.jpg used on input line 6.
@@ -1314,14 +1314,14 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 320.
  [25
 
 ]
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 331.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 332.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 331.
+Package pdftex.def Info: ur-logo2.pdf used on input line 332.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
 
 [26
@@ -1329,21 +1329,21 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 331.
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 345.
+Package pdftex.def Info: ur-logo2.pdf used on input line 346.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [27
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 359.
+Package pdftex.def Info: ur-logo2.pdf used on input line 360.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [28
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 375.
+Package pdftex.def Info: ur-logo2.pdf used on input line 376.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
 
 [29
@@ -1351,113 +1351,113 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 375.
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 392.
+Package pdftex.def Info: ur-logo2.pdf used on input line 393.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [30
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 405.
+Package pdftex.def Info: ur-logo2.pdf used on input line 406.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [31
 
 ]
-Overfull \hbox (4.9732pt too wide) in paragraph at lines 416--416
+Overfull \hbox (4.9732pt too wide) in paragraph at lines 417--417
 [][]  
  []
 
 File: ur-logo2.pdf Graphic file (type pdf)
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 416.
+Package pdftex.def Info: ur-logo2.pdf used on input line 417.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [32
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 430.
+Package pdftex.def Info: ur-logo2.pdf used on input line 431.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [33
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 444.
+Package pdftex.def Info: ur-logo2.pdf used on input line 445.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [34
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 461.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 462.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 461.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 462.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 461.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 462.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 461.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 462.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 461.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 462.
 File: ur-logo2.pdf Graphic file (type pdf)
 
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 461.
+Package pdftex.def Info: ur-logo2.pdf used on input line 462.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [35
 
-] <HT1.jpg, id=1020, 399.894pt x 244.9953pt>
+] <HT1.jpg, id=1032, 399.894pt x 244.9953pt>
 File: HT1.jpg Graphic file (type jpg)
 
 <use HT1.jpg>
-Package pdftex.def Info: HT1.jpg used on input line 470.
+Package pdftex.def Info: HT1.jpg used on input line 471.
 (pdftex.def)             Requested size: 259.52528pt x 158.99377pt.
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 470.
+Package pdftex.def Info: ur-logo2.pdf used on input line 471.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [36
 
  <./HT1.jpg>]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 481.
+Package pdftex.def Info: ur-logo2.pdf used on input line 482.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [37
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <5> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 503.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 504.
 File: ur-logo2.pdf Graphic file (type pdf)
 
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 503.
+Package pdftex.def Info: ur-logo2.pdf used on input line 504.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [38
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 526.
+Package pdftex.def Info: ur-logo2.pdf used on input line 527.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [39
 
 ]
-<lm-plot.pdf, id=1130, 325.215pt x 325.215pt>
+<lm-plot.pdf, id=1140, 325.215pt x 325.215pt>
 File: lm-plot.pdf Graphic file (type pdf)
  <use lm-plot.pdf>
-Package pdftex.def Info: lm-plot.pdf used on input line 538.
+Package pdftex.def Info: lm-plot.pdf used on input line 539.
 (pdftex.def)             Requested size: 158.99449pt x 158.99377pt.
 File: ur-logo2.pdf Graphic file (type pdf)
 
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 538.
+Package pdftex.def Info: ur-logo2.pdf used on input line 539.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [40
 
  <./lm-plot.pdf>]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 559.
+Package pdftex.def Info: ur-logo2.pdf used on input line 560.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [41
 
@@ -1465,21 +1465,21 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 559.
 File: ur-logo2.pdf Graphic file (type pdf)
 
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 576.
+Package pdftex.def Info: ur-logo2.pdf used on input line 577.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [42
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 588.
+Package pdftex.def Info: ur-logo2.pdf used on input line 589.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [43
 
 ]
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 606.
+Package pdftex.def Info: ur-logo2.pdf used on input line 607.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [44
 
@@ -1487,14 +1487,14 @@ Package pdftex.def Info: ur-logo2.pdf used on input line 606.
 File: ur-logo2.pdf Graphic file (type pdf)
 
 <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 620.
+Package pdftex.def Info: ur-logo2.pdf used on input line 621.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [45
 
 ] (./presentation.bbl)
 File: ur-logo2.pdf Graphic file (type pdf)
  <use ur-logo2.pdf>
-Package pdftex.def Info: ur-logo2.pdf used on input line 625.
+Package pdftex.def Info: ur-logo2.pdf used on input line 626.
 (pdftex.def)             Requested size: 154.92212pt x 18.06749pt.
  [46
 
@@ -1519,13 +1519,13 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 105.
  ) 
 Here is how much of TeX's memory you used:
- 18170 strings out of 495021
- 341348 string characters out of 6181344
- 413621 words of memory out of 5000000
- 20758 multiletter control sequences out of 15000+600000
+ 18306 strings out of 495021
+ 342932 string characters out of 6181344
+ 413615 words of memory out of 5000000
+ 20894 multiletter control sequences out of 15000+600000
  98679 words of font info for 129 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,19n,65p,392b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,65p,392b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-
@@ -1539,10 +1539,10 @@ msy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on presentation.pdf (46 pages, 469898 bytes).
+Output written on presentation.pdf (46 pages, 473533 bytes).
 PDF statistics:
- 1401 PDF objects out of 1440 (max. 8388607)
- 1297 compressed objects within 13 object streams
+ 1410 PDF objects out of 1440 (max. 8388607)
+ 1304 compressed objects within 14 object streams
  105 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 

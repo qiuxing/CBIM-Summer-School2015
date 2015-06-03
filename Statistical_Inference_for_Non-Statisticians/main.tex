@@ -327,6 +327,7 @@
     $\hat{\theta}^{\mathrm{mle}}$.
   \item Bias-adjusted MLE. $n \to n-1$ in the denominator.
   \item Use moment estimator when MLE is hard to derive/compute.
+  \item Counter example: $\dfrac{\sum_{i=1}^{n} (X_i -\mu)^{2}}{n}$.
   \end{itemize}
 \end{frame}
 
@@ -398,7 +399,7 @@
     \begin{enumerate}
     \item We accept $H_{0}$ (The 2 treatments have identical
       performances).
-    \item We reject $H_{1}$ and accept $H_{1}$ (The 2 treatments have
+    \item We reject $H_{0}$ and accept $H_{1}$ (The 2 treatments have
       different performances).
     \end{enumerate}
   \end{itemize}
@@ -432,8 +433,8 @@
 \begin{frame}
   \frametitle{Two group comparison with unknown variance}
   \begin{itemize}
-  \item A natural way to test $H_{0}$ versus $H_{1}$ is to use mean
-    differences, $D = \bar{X}^{A} - bar{X}^{B}$.
+  \item A na\"ive way to test $H_{0}$ versus $H_{1}$ is to use mean
+    differences, $D = \bar{X}^{A} - \bar{X}^{B}$.
   \item Is $D = -12.88$ significant or not?
   \item Answer: We need to know the \emph{variance}.  For example,
     12.88 pounds of mean body weight difference may be significant;

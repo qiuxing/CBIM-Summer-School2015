@@ -1,0 +1,7 @@
+PWD /home/xqiu/Work/teaching/Summer_school2015/CBIM-Summer-School2015/Statistical_Inference_for_Non-Statisticians
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT article.pdf
+OUTPUT article.log
